@@ -16,6 +16,11 @@
     margin: 0;
     cursor: pointer;
     text-transform: uppercase;
+    text-decoration: none;
+}
+
+.hamburger {
+    display: none;
 }
 
 .nav-options {
@@ -92,4 +97,42 @@
 .separator {
     color: #ccc;
     font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; 
+        flex-direction: column;
+        gap: 6px;
+        z-index: 1001;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 2px;
+        background-color: #1a1a1a;
+        transition: 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav-options {
+        display: flex; 
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 100%;
+        height: 100vh;
+        background-color: #fffcfa; 
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s ease-in-out;
+        z-index: 1000;
+    }
+
+    .nav-options.mobile-open {
+        right: 0; 
+    }
 }
