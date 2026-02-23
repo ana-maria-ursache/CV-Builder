@@ -18,6 +18,10 @@ export default function LandingPage() {
   //   getInstruments();
   // }, []);
 
+  const navigateToCVBuilder = () => {
+    window.location.href = '/builder/:id';
+  };
+
   return (
     // <ul>
     //   {instruments.map((instrument) => (
@@ -28,7 +32,9 @@ export default function LandingPage() {
       {/* Landing Page */}
       <div className="title">{t('landing-page-title')}</div>
       <div className="description">{t('landing-page-description')}</div>
-      <button className="custom-btn">{t('landing-page-btn')}</button>
+      <button className="custom-btn" onClick={navigateToCVBuilder}>
+        {t('landing-page-btn')}
+      </button>
     </div>
   );
 }
