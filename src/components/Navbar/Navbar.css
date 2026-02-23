@@ -20,6 +20,8 @@
 
 .nav-options {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
 }
 
@@ -41,4 +43,53 @@
 
 .nav-button:hover {
     color: #000;
+}
+
+.change-lng {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.lng-btn {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #888; 
+    cursor: pointer;
+    padding: 2px 6px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.lng-btn.active {
+    color: #000;
+}
+
+.lng-btn.active::before,
+.lng-btn.active::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    border-color: #000;
+    border-style: solid;
+    top: 0;
+}
+
+.lng-btn.active::before {
+    left: -2px;
+    border-width: 1px 0 1px 1px; /* [ */
+}
+
+.lng-btn.active::after {
+    right: -2px;
+    border-width: 1px 1px 1px 0; /* ] */
+}
+
+.separator {
+    color: #ccc;
+    font-size: 12px;
 }
