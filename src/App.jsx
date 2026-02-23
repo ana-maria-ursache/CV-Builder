@@ -1,13 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage/LandingPage';
 import './App.css';
+import Layout from './pages/Layout/Layout';
+import CVBuilder from './pages/CVBuilder/CVBuilder';
 
 export default function App() {
-  // const supabase = createClient(env.supabaseUrl, env.supabaseKey);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="builder/:id" element={<CVBuilder />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
