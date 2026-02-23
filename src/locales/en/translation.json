@@ -6,5 +6,13 @@
     "landing-page-title":"Welcome to Keystroke!",
     "landing-page-description":"Keystroke is a minimalist CV-builder engineered for professionals who value digital precision. Create, customize, and instantly download your CV in a high-impact aesthetic. By creating an account, you can manage multiple professional profiles, allowing you to tailor your identity for every opportunity with speed and sophistication.",
     "landing-page-btn":"Build your own CV",
+
+    "toast-success":"The message was successfully sent!",
+    "contact-us":"Contact us:",
+    "your-email":"TYPE YOUR EMAIL HERE...",
+    "message":"Message",
+    "your-message":"TYPE YOUR MESSAGE HERE...",
+    "submit-btn":"Submit",
+
     "footer":"All rights reserved."
 }
