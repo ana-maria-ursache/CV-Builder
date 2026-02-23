@@ -5,7 +5,6 @@
     justify-content: center; 
     text-align: center;    
     gap: 40px;
-    /* width:60%; */
 }
 
 .title{
@@ -14,7 +13,7 @@
 
 .description{
     font-size: 1.2rem;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     width: 50%;
 }
 
@@ -28,4 +27,32 @@
   text-transform: uppercase;
   color: #1a1a1a;
   border:3px solid #1a1a1a;
+}
+
+
+@media (max-width: 1024px) {
+    .description {
+        width: 80%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-page-container {
+        gap: 30px; 
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem; 
+        width: 80%;    
+        letter-spacing: 0.5px;
+    }
+
+    .custom-btn {
+        max-width: 300px; 
+        padding: 12px 20px;
+    }
 }
