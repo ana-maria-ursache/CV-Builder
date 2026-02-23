@@ -10,11 +10,14 @@ export default function Navbar() {
           <NavLink to="/" className="nav-button">
             Home
           </NavLink>
-          <NavLink to="/watchlist" className="nav-button">
+          <NavLink to="/builder/:id" className="nav-button">
             CV Builder
           </NavLink>
-          <NavLink to="/watchlist" className="nav-button">
+          <NavLink to="/contact" className="nav-button">
             Contact
+          </NavLink>
+          <NavLink to="/auth" className="nav-button">
+            LogIn
           </NavLink>
         </div>
       </nav>

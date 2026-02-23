@@ -3,6 +3,8 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import './App.css';
 import Layout from './pages/Layout/Layout';
 import CVBuilder from './pages/CVBuilder/CVBuilder';
+import Contact from './pages/Contact/Contact';
+import Auth from './components/Auth/Auth';
 
 export default function App() {
   return (
@@ -11,6 +13,8 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="builder/:id" element={<CVBuilder />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="auth" element={<Auth />} />
         </Route>
       </Routes>
     </BrowserRouter>
