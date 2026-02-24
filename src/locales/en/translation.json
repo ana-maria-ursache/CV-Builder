@@ -7,12 +7,18 @@
     "landing-page-description":"Keystroke is a minimalist CV-builder engineered for professionals who value digital precision. Create, customize, and instantly download your CV in a high-impact aesthetic. By creating an account, you can manage multiple professional profiles, allowing you to tailor your identity for every opportunity with speed and sophistication.",
     "landing-page-btn":"Build your own CV",
 
-    "toast-success":"The message was successfully sent!",
     "contact-us":"Contact us:",
-    "your-email":"TYPE YOUR EMAIL HERE...",
+    "your-email":"TYPE YOUR EMAIL...",
     "message":"Message",
-    "your-message":"TYPE YOUR MESSAGE HERE...",
+    "your-message":"TYPE YOUR MESSAGE ...",
+    "your-name":"TYPE YOUR NAME...",
+    "subject":"Subject",
+    "your-subject":"TYPE YOUR SUBJECT...",
     "submit-btn":"Submit",
-
+    "username":"Username",
+    "email-failed":"Email service failed!",
+    "submit-failed":"FAILED AT SUBMIT:",
+    "toast-success": "Message sent successfully! We'll get back to you soon.",
+    "toast-error-generic": "Oops! Something went wrong. Please try again later.",
     "footer":"All rights reserved."
 }
