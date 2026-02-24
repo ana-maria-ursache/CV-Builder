@@ -1,15 +1,15 @@
-import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
-import CVStyle from '../../components/CVBuilderVIew/CVStyle';
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { memo } from 'react';
+import styles from './CVStyle';
 
-export default function CVBuilderView({ data }) {
+function CVBuilderView({ data }) {
   console.log(data);
-
   return (
     <Document>
-      <Page size="A4" style={CVStyle.page}>
+      <Page size="A4" style={styles.page}>
         {/* Header */}
-        <View style={CVStyle.header}>
-          <Text style={CVStyle.name}>{data.personal?.name}</Text>
+        <View style={styles.header}>
+          <Text style={styles.name}>{data.personal?.name}</Text>
           <Text>
             {data.personal?.location} | {data.personal?.email} | {data.personal?.phone}
           </Text>
@@ -23,38 +23,38 @@ export default function CVBuilderView({ data }) {
         </View>
 
         {/* Experience */}
-        {data.experience && data.experience.length > 0 && (
+        {data.experience?.length > 0 && (
           <>
-            <Text style={CVStyle.sectionTitle}>Professional Experience</Text>
+            <Text style={styles.sectionTitle}>Professional Experience</Text>
             {data.experience.map((exp, i) => (
-              <View key={i} style={CVStyle.itemHeader}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Text style={CVStyle.bold}>
+              <View key={i} style={styles.itemContainer}>
+                <View style={styles.itemHeader}>
+                  <Text style={styles.bold}>
                     {exp.role} - {exp.company}
                   </Text>
                   <Text>{exp.date}</Text>
                 </View>
-                {exp.location && <Text style={{ fontSize: 9 }}>{exp.location}</Text>}
-                {exp.description && <Text style={{ marginTop: 3 }}>{exp.description}</Text>}
+                {exp.location && <Text style={styles.location}>{exp.location}</Text>}
+                {exp.description && <Text style={styles.description}>{exp.description}</Text>}
               </View>
             ))}
           </>
         )}
 
         {/* Education */}
-        {data.education && data.education.length > 0 && (
+        {data.education?.length > 0 && (
           <>
-            <Text style={CVStyle.sectionTitle}>Education</Text>
+            <Text style={styles.sectionTitle}>Education</Text>
             {data.education.map((edu, i) => (
-              <View key={i} style={CVStyle.itemHeader}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Text style={CVStyle.bold}>
+              <View key={i} style={styles.itemContainer}>
+                <View style={styles.itemHeader}>
+                  <Text style={styles.bold}>
                     {edu.degree} - {edu.university}
                   </Text>
                   <Text>{edu.date}</Text>
                 </View>
-                {edu.location && <Text style={{ fontSize: 9 }}>{edu.location}</Text>}
-                {edu.description && <Text style={{ marginTop: 3 }}>{edu.description}</Text>}
+                {edu.location && <Text style={styles.location}>{edu.location}</Text>}
+                {edu.description && <Text style={styles.description}>{edu.description}</Text>}
               </View>
             ))}
           </>
@@ -63,16 +63,16 @@ export default function CVBuilderView({ data }) {
         {/* Skills */}
         {data.skills && (data.skills.hard || data.skills.soft) && (
           <>
-            <Text style={CVStyle.sectionTitle}>Skills</Text>
+            <Text style={styles.sectionTitle}>Skills</Text>
             {data.skills.hard && (
               <Text style={{ marginTop: 5 }}>
-                <Text style={CVStyle.bold}>Hard Skills: </Text>
+                <Text style={styles.bold}>Hard Skills: </Text>
                 {data.skills.hard}
               </Text>
             )}
             {data.skills.soft && (
               <Text>
-                <Text style={CVStyle.bold}>Soft Skills: </Text>
+                <Text style={styles.bold}>Soft Skills: </Text>
                 {data.skills.soft}
               </Text>
             )}
@@ -80,62 +80,51 @@ export default function CVBuilderView({ data }) {
         )}
 
         {/* Projects */}
-        {data.projects && data.projects.length > 0 && (
+        {data.projects?.length > 0 && (
           <>
-            <Text style={CVStyle.sectionTitle}>Projects</Text>
+            <Text style={styles.sectionTitle}>Projects</Text>
             {data.projects.map((proj, i) => (
-              <View key={i} style={{ marginTop: 5 }}>
-                <Text style={CVStyle.bold}>
-                  {proj.title}
-                </Text>
+              <View key={i} style={styles.itemContainer}>
+                <Text style={styles.bold}>{proj.title}</Text>
                 {proj.stack && (
                   <Text style={{ fontSize: 9 }}>
-                    <Text style={CVStyle.bold}>Stack: </Text>
+                    <Text style={styles.bold}>Stack: </Text>
                     {proj.stack}
                   </Text>
                 )}
-                {proj.description && <Text style={{ marginTop: 3 }}>{proj.description}</Text>}
+                {proj.description && <Text style={styles.description}>{proj.description}</Text>}
               </View>
             ))}
-          </>
-        )}
-
-        {/* Certificates */}
-        {data.certificates && (
-          <>
-            <Text style={CVStyle.sectionTitle}>Certificates & Training</Text>
-            <Text style={{ marginTop: 5 }}>{data.certificates}</Text>
           </>
         )}
 
         {/* Volunteering */}
-        {data.volunteering && data.volunteering.length > 0 && (
+        {data.volunteering?.length > 0 && (
           <>
-            <Text style={CVStyle.sectionTitle}>Volunteering & Training</Text>
+            <Text style={styles.sectionTitle}>Volunteering & Training</Text>
             {data.volunteering.map((vol, i) => (
-              <View key={i} style={CVStyle.itemHeader}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Text style={CVStyle.bold}>{vol.role}</Text>
+              <View key={i} style={styles.itemContainer}>
+                <View style={styles.itemHeader}>
+                  <Text style={styles.bold}>{vol.role}</Text>
                   <Text>{vol.date}</Text>
                 </View>
-                {vol.description && <Text style={{ marginTop: 3 }}>{vol.description}</Text>}
+                {vol.description && <Text style={styles.description}>{vol.description}</Text>}
               </View>
             ))}
           </>
         )}
 
-        {/* Languages */}
+        {/* Languages & Interests */}
         {data.languages && (
           <>
-            <Text style={CVStyle.sectionTitle}>Languages</Text>
+            <Text style={styles.sectionTitle}>Languages</Text>
             <Text style={{ marginTop: 5 }}>{data.languages}</Text>
           </>
         )}
-
         {/* Interests */}
         {data.interests && (
           <>
-            <Text style={CVStyle.sectionTitle}>Interests</Text>
+            <Text style={styles.sectionTitle}>Interests</Text>
             <Text style={{ marginTop: 5 }}>{data.interests}</Text>
           </>
         )}
@@ -143,3 +132,5 @@ export default function CVBuilderView({ data }) {
     </Document>
   );
 }
+
+export default memo(CVBuilderView);

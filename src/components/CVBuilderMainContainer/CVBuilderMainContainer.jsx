@@ -1,6 +1,7 @@
 import './CVBuilderMainContainer.css';
+import { memo } from 'react';
 
-export default function CVBuilderMainContainer({ cvData, onUpdate }) {
+function CVBuilderMainContainer({ onUpdate }) {
   return (
     <div className="cv-page-wrapper">
       <div className="cv-document">
@@ -16,66 +17,66 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Nume Complet</label>
                 <input
-                  name="name"
+                  name="personal.name"
                   type="text"
-                  value={cvData.personal.name}
                   onChange={onUpdate}
                   className="cv-field"
+                  placeholder="Your Name"
                 />
               </div>
 
               <div className="cv-input-group">
                 <label>Numar de telefon</label>
                 <input
-                  name="phone"
+                  name="personal.phone"
                   type="text"
-                  value={cvData.personal.phone}
                   onChange={onUpdate}
                   className="cv-field"
+                  placeholder="Phone number"
                 />
               </div>
 
               <div className="cv-input-group">
                 <label>Locație</label>
                 <input
-                  name="location"
+                  name="personal.location"
                   type="text"
-                  value={cvData.personal.location}
                   onChange={onUpdate}
                   className="cv-field"
+                  placeholder="ex: Iasi, Romania"
                 />
               </div>
 
               <div className="cv-input-group">
                 <label>Email</label>
                 <input
-                  name="email"
+                  name="personal.email"
                   type="email"
-                  value={cvData.personal.email}
                   onChange={onUpdate}
                   className="cv-field"
+                  placeholder="ex: your.email@example.com"
                 />
               </div>
 
               <div className="cv-input-group">
                 <label>Github</label>
                 <input
-                  name="github"
+                  name="personal.github"
                   type="text"
-                  value={cvData.personal.github}
                   onChange={onUpdate}
                   className="cv-field"
+                  placeholder="ex: your-github-username"
                 />
               </div>
 
               <div className="cv-input-group">
                 <label>Linkedin</label>
                 <input
-                  name="linkedin"
+                  name="personal.linkedin"
                   type="text"
-                  value={cvData.personal.linkedin}
                   onChange={onUpdate}
                   className="cv-field"
+                  placeholder="ex: your-linkedin-profile"
                 />
               </div>
             </div>
@@ -87,7 +88,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Rol</label>
                 <input
-                  name="expRole"
+                  name="experience.0.role"
                   type="text"
                   className="cv-field"
                   placeholder="ex: Full Stack - Intern"
@@ -97,7 +98,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Companie</label>
                 <input
-                  name="expCompany"
+                  name="experience.0.company"
                   type="text"
                   className="cv-field"
                   placeholder="ex: Cognizant"
@@ -108,7 +109,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Date</label>
                 <input
-                  name="expDate"
+                  name="experience.0.date"
                   type="text"
                   className="cv-field"
                   placeholder="ex: 2020 - 2021"
@@ -119,7 +120,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Locatie</label>
                 <input
-                  name="expLocation"
+                  name="experience.0.location"
                   type="text"
                   className="cv-field"
                   placeholder="ex: Iasi, Romania"
@@ -130,7 +131,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group full-width">
                 <label>Descriere</label>
                 <textarea
-                  name="expDesc"
+                  name="experience.0.description"
                   className="cv-field cv-textarea"
                   rows="3"
                   placeholder="Descrie task-urile tale..."
@@ -145,12 +146,18 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
             <div className="cv-grid">
               <div className="cv-input-group">
                 <label>Instituție</label>
-                <input name="eduUni" type="text" className="cv-field" placeholder="ex: UAIC Iasi" />
+                <input
+                  name="education.0.university"
+                  type="text"
+                  className="cv-field"
+                  placeholder="ex: UAIC Iasi"
+                  onChange={onUpdate}
+                />
               </div>
               <div className="cv-input-group">
                 <label>Diplomă</label>
                 <input
-                  name="eduDegree"
+                  name="education.0.degree"
                   type="text"
                   className="cv-field"
                   placeholder="ex: Master's Degree"
@@ -161,7 +168,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Locatie</label>
                 <input
-                  name="eduLocation"
+                  name="education.0.location"
                   type="text"
                   className="cv-field"
                   placeholder="ex: Iasi, Romania"
@@ -172,7 +179,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Data</label>
                 <input
-                  name="eduDate"
+                  name="education.0.date"
                   type="text"
                   className="cv-field"
                   placeholder="ex: 2020 - 2021"
@@ -183,7 +190,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Descriere</label>
                 <textarea
-                  name="eduDesc"
+                  name="education.0.description"
                   className="cv-field cv-textarea"
                   rows="3"
                   placeholder="Descrie task-urile tale..."
@@ -199,7 +206,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group full-width">
                 <label>Hard Skills</label>
                 <input
-                  name="hardSkills"
+                  name="skills.hard"
                   type="text"
                   className="cv-field"
                   placeholder="AWS, Terraform, Docker..."
@@ -209,7 +216,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group full-width">
                 <label>Soft Skills</label>
                 <input
-                  name="softSkills"
+                  name="skills.soft"
                   type="text"
                   className="cv-field"
                   placeholder="Punctualitate, Comunicare, Leadership..."
@@ -225,7 +232,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Titlu Proiect</label>
                 <input
-                  name="projTitle"
+                  name="projects.0.title"
                   type="text"
                   className="cv-field"
                   placeholder="ex: KeyStroke"
@@ -235,7 +242,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Tehnologii (Stack)</label>
                 <input
-                  name="projStack"
+                  name="projects.0.stack"
                   type="text"
                   className="cv-field"
                   placeholder="ex: MongoDB, Express..."
@@ -246,7 +253,7 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
               <div className="cv-input-group">
                 <label>Descriere Proiect</label>
                 <textarea
-                  name="projDesc"
+                  name="projects.0.description"
                   className="cv-field cv-textarea"
                   rows="3"
                   placeholder="Descrie task-urile tale..."
@@ -258,84 +265,102 @@ export default function CVBuilderMainContainer({ cvData, onUpdate }) {
 
           <section className="cv-section">
             <h2 className="section-label">Cerificates and Trainings</h2>
-            <div className="cv-input-group full-width">
-              <input
-                name="certificates"
-                type="text"
-                className="cv-field"
-                placeholder="ex: AWS Certified, Google Cloud Training..."
-                onChange={onUpdate}
-              />
+            <div className="cv-grid">
+              <div className="cv-input-group full-width">
+                <input
+                  name="certificates"
+                  type="text"
+                  className="cv-field"
+                  placeholder="ex: AWS Certified, Google Cloud Training..."
+                  onChange={onUpdate}
+                />
+              </div>
             </div>
           </section>
 
           <section className="cv-section">
             <h2 className="section-label">Voluntariat & Training</h2>
-            <div className="cv-input-group full-width">
-              <label>Organizație & Rol</label>
-              <input
-                name="volRole"
-                type="text"
-                className="cv-field"
-                placeholder="ex: ASII - Project Management"
-                onChange={onUpdate}
-              />
-            </div>
+            <div className="cv-grid">
+              <div className="cv-input-group full-width">
+                <label>Organizație & Rol</label>
+                <input
+                  name="volunteering.0.role"
+                  type="text"
+                  className="cv-field"
+                  placeholder="ex: ASII - Project Management"
+                  onChange={onUpdate}
+                />
+              </div>
 
-            <div className="cv-input-group full-width">
-              <label>Data</label>
-              <input
-                name="volDate"
-                type="text"
-                className="cv-field"
-                placeholder="ex: 2020 - 2021"
-                onChange={onUpdate}
-              />
-            </div>
+              <div className="cv-input-group full-width">
+                <label>Data</label>
+                <input
+                  name="volunteering.0.date"
+                  type="text"
+                  className="cv-field"
+                  placeholder="ex: 2020 - 2021"
+                  onChange={onUpdate}
+                />
+              </div>
 
-            <div className="cv-input-group full-width">
-              <label>Descriere</label>
-              <textarea
-                name="volDesc"
-                className="cv-field cv-textarea"
-                rows="3"
-                placeholder="Descrie task-urile tale..."
-                onChange={onUpdate}
-              ></textarea>
+              <div className="cv-input-group full-width">
+                <label>Descriere</label>
+                <textarea
+                  name="volunteering.0.description"
+                  className="cv-field cv-textarea"
+                  rows="3"
+                  placeholder="Descrie task-urile tale..."
+                  onChange={onUpdate}
+                ></textarea>
+              </div>
             </div>
           </section>
 
           <section className="cv-section">
             <h2 className="section-label">Languages</h2>
-            <div className="cv-input-group full-width">
-              <input
-                name="languages"
-                type="text"
-                className="cv-field"
-                placeholder="ex: English - C1, French - B2"
-                onChange={onUpdate}
-              />
+            <div className="cv-grid">
+              <div className="cv-input-group full-width">
+                <input
+                  name="languages"
+                  type="text"
+                  className="cv-field"
+                  placeholder="ex: English - C1, French - B2"
+                  onChange={onUpdate}
+                />
+              </div>
             </div>
           </section>
 
           <section className="cv-section">
             <h2 className="section-label">Interests</h2>
-            <div className="cv-input-group full-width">
-              <input
-                name="interests"
-                type="text"
-                className="cv-field"
-                placeholder="ex: Reading, Traveling, Photography"
-                onChange={onUpdate}
-              />
+            <div className="cv-grid">
+              <div className="cv-input-group full-width">
+                <input
+                  name="interests"
+                  type="text"
+                  className="cv-field"
+                  placeholder="ex: Reading, Traveling, Photography"
+                  onChange={onUpdate}
+                />
+              </div>
             </div>
           </section>
 
-          <button type="submit" className="cv-save-btn">
-            Generează CV Final
-          </button>
+          <div className="cv-buttons">
+            <button type="submit" className="cv-btn">
+              Salveaza progresul
+            </button>
+            <button type="submit" className="cv-btn">
+              Descarcă
+            </button>
+            <button type="submit" className="cv-btn">
+              Reseteaza
+            </button>
+          </div>
         </form>
       </div>
     </div>
   );
 }
+
+export default memo(CVBuilderMainContainer);

@@ -87,7 +87,13 @@
   margin-top: 15px;
 }
 
-.cv-save-btn {
+.cv-buttons{
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.cv-btn {
   width: 100%;
   padding: 15px;
   background: #000;
@@ -100,7 +106,7 @@
   transition: 0.3s;
 }
 
-.cv-save-btn:hover {
+.cv-btn:hover {
   background: #ff840080;
   transform: translate(-3px, -3px);
   box-shadow: 5px 5px 0px #000;

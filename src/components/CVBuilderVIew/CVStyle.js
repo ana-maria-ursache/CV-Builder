@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     color: '#444'
   },
+  itemContainer: { 
+    marginTop: 7 
+  },
   description: {
     marginTop: 3,
     fontSize: 9,
