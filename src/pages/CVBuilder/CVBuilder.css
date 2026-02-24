@@ -1,0 +1,25 @@
+.CVB {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 100vh;
+    gap: 40px;
+    padding: 20px;
+    width: 100%;
+}
+
+
+.viewer-side {
+    position: sticky;
+    top: 40px;
+    height: calc(100vh - 40px);
+    background: white;
+    border: 3px solid #000; 
+    box-shadow: 10px 10px 0px #000; 
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-viewer-frame {
+    border: none;
+    flex-grow: 1;
+}
