@@ -104,6 +104,7 @@
   cursor: pointer;
   margin-top: 20px;
   transition: 0.3s;
+  font-size: 0.75rem;
 }
 
 .cv-btn:hover {

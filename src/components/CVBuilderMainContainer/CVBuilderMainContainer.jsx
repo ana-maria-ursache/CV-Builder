@@ -10,7 +10,7 @@ import PairWithTextAreaSection from './PairWithTextAreaSection';
 
 import { useTranslation } from 'react-i18next';
 
-function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) {
+function CVBuilderMainContainer({ onUpdate, cvData, initialValues }) {
   const { t } = useTranslation();
 
   return (
@@ -207,7 +207,7 @@ function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) 
             onChange={onUpdate}
           />
 
-          <CVBuilderBtns cvData={cvData} setCvData={setCvData} initialValues={initialValues} />
+          <CVBuilderBtns cvData={cvData} initialValues={initialValues} />
         </form>
       </div>
     </div>
