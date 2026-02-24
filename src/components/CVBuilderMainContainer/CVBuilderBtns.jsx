@@ -1,6 +1,9 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 function CVBuilderBtns({ cvData, setCvData, initialValues }) {
+  const { t } = useTranslation();
+
   const saveCV = () => {
     setCvData(initialValues);
     //TODO: save in baza de date un anumit id
@@ -26,13 +29,13 @@ function CVBuilderBtns({ cvData, setCvData, initialValues }) {
   return (
     <div className="cv-buttons">
       <button type="button" onClick={saveCV} className="cv-btn">
-        Salveaza progresul
+        {t('save-progr')}
       </button>
       <button type="button" onClick={downloadCV} className="cv-btn">
-        Descarcă
+        {t('download-pdf')}
       </button>
       <button type="button" onClick={resetCV} className="cv-btn">
-        Reseteaza
+        {t('reset-btn')}
       </button>
     </div>
   );

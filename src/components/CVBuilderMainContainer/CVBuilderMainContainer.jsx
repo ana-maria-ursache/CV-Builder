@@ -8,38 +8,42 @@ import TextAreaField from './TextAreaField';
 import SingleFieldSection from './SingleFieldSection';
 import PairWithTextAreaSection from './PairWithTextAreaSection';
 
+import { useTranslation } from 'react-i18next';
+
 function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) {
+  const { t } = useTranslation();
+
   return (
     <div className="cv-page-wrapper">
       <div className="cv-document">
         <header className="cv-header">
-          <h1 className="cv-title">CV Editor</h1>
+          <h1 className="cv-title">{t('cv-editor')}</h1>
           <div className="header-line"></div>
         </header>
 
         <form className="cv-form">
           {/* Personal Section */}
-          <Section title="Informații Personale">
+          <Section title={t('personal-info')}>
             <InputPair
-              field1={{ label: 'Nume Complet', name: 'personal.name', placeholder: 'Your Name' }}
+              field1={{ label: t('nume'), name: 'personal.name', placeholder: t('nume') }}
               field2={{
-                label: 'Numar de telefon',
+                label: t('phone-number'),
                 name: 'personal.phone',
-                placeholder: 'Phone number',
+                placeholder: t('phone-number'),
               }}
               onChange={onUpdate}
             />
             <InputPair
               field1={{
-                label: 'Locație',
+                label: t('location'),
                 name: 'personal.location',
-                placeholder: 'ex: Iasi, Romania',
+                placeholder: t('location-placeholder'),
               }}
               field2={{
-                label: 'Email',
+                label: t('email'),
                 name: 'personal.email',
                 type: 'email',
-                placeholder: 'ex: your.email@example.com',
+                placeholder: t('email-placeholder'),
               }}
               onChange={onUpdate}
             />
@@ -47,43 +51,43 @@ function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) 
               field1={{
                 label: 'Github',
                 name: 'personal.github',
-                placeholder: 'ex: your-github-username',
+                placeholder: t('github-placeholder'),
               }}
               field2={{
                 label: 'Linkedin',
                 name: 'personal.linkedin',
-                placeholder: 'ex: your-linkedin-profile',
+                placeholder: t('linkedin-placeholder'),
               }}
               onChange={onUpdate}
             />
           </Section>
 
           {/* Experience Section */}
-          <Section title="Experiență Profesională">
+          <Section title={t('work-experience')}>
             <InputPair
               field1={{
-                label: 'Rol',
+                label: t('role'),
                 name: 'experience.0.role',
                 placeholder: 'ex: Full Stack - Intern',
               }}
               field2={{
-                label: 'Companie',
+                label: t('company'),
                 name: 'experience.0.company',
                 placeholder: 'ex: Cognizant',
               }}
               onChange={onUpdate}
             />
             <InputPair
-              field1={{ label: 'Date', name: 'experience.0.date', placeholder: 'ex: 2020 - 2021' }}
+              field1={{ label: t('date'), name: 'experience.0.date', placeholder: 'ex: 2020 - 2021' }}
               field2={{
-                label: 'Locatie',
+                label: t('location'),
                 name: 'experience.0.location',
-                placeholder: 'ex: Iasi, Romania',
+                placeholder: t('location-placeholder'),
               }}
               onChange={onUpdate}
             />
             <TextAreaField
-              label="Descriere"
+              label={t('description')}
               name="experience.0.description"
               placeholder="Descrie task-urile tale..."
               onChange={onUpdate}
@@ -91,15 +95,15 @@ function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) 
           </Section>
 
           {/* Education Section */}
-          <Section title="Educație">
+          <Section title={t('education')}>
             <InputPair
               field1={{
-                label: 'Instituție',
+                label: t('university'),
                 name: 'education.0.university',
                 placeholder: 'ex: UAIC Iasi',
               }}
               field2={{
-                label: 'Diplomă',
+                label: t('degree'),
                 name: 'education.0.degree',
                 placeholder: "ex: Master's Degree",
               }}
@@ -107,26 +111,26 @@ function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) 
             />
             <InputPair
               field1={{
-                label: 'Locatie',
+                label: t('location'),
                 name: 'education.0.location',
-                placeholder: 'ex: Iasi, Romania',
+                placeholder: t('location-placeholder'),
               }}
-              field2={{ label: 'Data', name: 'education.0.date', placeholder: 'ex: 2020 - 2021' }}
+              field2={{ label: t('date'), name: 'education.0.date', placeholder: 'ex: 2020 - 2021' }}
               onChange={onUpdate}
             />
             <TextAreaField
-              label="Descriere"
+              label={t('description')}
               name="education.0.description"
-              placeholder="Descrie task-urile tale..."
+              placeholder={t('description-placeholder')}
               onChange={onUpdate}
             />
           </Section>
 
           {/* Skills Section */}
-          <Section title="Abilități">
+          <Section title={t('skills')}>
             <InputPair
               field1={{
-                label: 'Hard Skills',
+                label: t('hard-skills'),
                 name: 'skills.hard',
                 placeholder: 'AWS, Terraform, Docker...',
                 fullWidth: true,
@@ -135,7 +139,7 @@ function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) 
             />
             <InputPair
               field1={{
-                label: 'Soft Skills',
+                label: t('soft-skills'),
                 name: 'skills.soft',
                 placeholder: 'Punctualitate, Comunicare, Leadership...',
                 fullWidth: true,
@@ -146,26 +150,27 @@ function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) 
 
           {/* Projects Section */}
           <PairWithTextAreaSection
-            title="Proiecte Personale"
+            title={t('personal-projects')}
             field1={{
-              label: 'Titlu Proiect',
+              label: t('project-title'),
               name: 'projects.0.title',
               placeholder: 'ex: KeyStroke',
             }}
             field2={{
-              label: 'Tehnologii (Stack)',
+              label: t('stack'),
+
               name: 'projects.0.stack',
               placeholder: 'ex: MongoDB, Express...',
             }}
-            textAreaLabel="Descriere Proiect"
+            textAreaLabel={t('description')}
             textAreaName="projects.0.description"
-            textAreaPlaceholder="Descrie task-urile tale..."
+            textAreaPlaceholder={t('description-placeholder')}
             onChange={onUpdate}
           />
 
           {/* Certificates Section */}
           <SingleFieldSection
-            title="Certificates and Trainings"
+            title={t('certificates')}
             fieldName="certificates"
             placeholder="ex: AWS Certified, Google Cloud Training..."
             onChange={onUpdate}
@@ -173,22 +178,22 @@ function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) 
 
           {/* Volunteering Section */}
           <PairWithTextAreaSection
-            title="Voluntariat & Training"
+            title={t('volunteering')}
             field1={{
-              label: 'Organizație & Rol',
+              label: t('volunteering-role'),
               name: 'volunteering.0.role',
               placeholder: 'ex: ASII - Project Management',
             }}
-            field2={{ label: 'Data', name: 'volunteering.0.date', placeholder: 'ex: 2020 - 2021' }}
-            textAreaLabel="Descriere"
+            field2={{ label: t('date'), name: 'volunteering.0.date', placeholder: 'ex: 2020 - 2021' }}
+            textAreaLabel={t('description')}
             textAreaName="volunteering.0.description"
-            textAreaPlaceholder="Descrie task-urile tale..."
+            textAreaPlaceholder={t('description-placeholder')}
             onChange={onUpdate}
           />
 
           {/* Languages Section */}
           <SingleFieldSection
-            title="Languages"
+            title={t('languages')}
             fieldName="languages"
             placeholder="ex: English - C1, French - B2"
             onChange={onUpdate}
@@ -196,7 +201,7 @@ function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) 
 
           {/* Interests Section */}
           <SingleFieldSection
-            title="Interests"
+            title={t('interests')}
             fieldName="interests"
             placeholder="ex: Reading, Traveling, Photography"
             onChange={onUpdate}

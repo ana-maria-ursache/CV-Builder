@@ -3,7 +3,6 @@ import { memo } from 'react';
 import styles from './CVStyle';
 
 function CVBuilderView({ data }) {
-  console.log(data);
   return (
     <Document>
       <Page size="A4" style={styles.page}>
