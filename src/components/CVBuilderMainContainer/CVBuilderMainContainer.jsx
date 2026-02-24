@@ -1,12 +1,14 @@
 import './CVBuilderMainContainer.css';
 import { memo } from 'react';
+import CVBuilderBtns from './CVBuilderBtns';
+
 import Section from './Section';
 import InputPair from './InputPair';
 import TextAreaField from './TextAreaField';
 import SingleFieldSection from './SingleFieldSection';
 import PairWithTextAreaSection from './PairWithTextAreaSection';
 
-function CVBuilderMainContainer({ onUpdate }) {
+function CVBuilderMainContainer({ onUpdate, cvData, setCvData, initialValues }) {
   return (
     <div className="cv-page-wrapper">
       <div className="cv-document">
@@ -200,17 +202,7 @@ function CVBuilderMainContainer({ onUpdate }) {
             onChange={onUpdate}
           />
 
-          <div className="cv-buttons">
-            <button type="submit" className="cv-btn">
-              Salveaza progresul
-            </button>
-            <button type="submit" className="cv-btn">
-              Descarcă
-            </button>
-            <button type="submit" className="cv-btn">
-              Reseteaza
-            </button>
-          </div>
+          <CVBuilderBtns cvData={cvData} setCvData={setCvData} initialValues={initialValues} />
         </form>
       </div>
     </div>

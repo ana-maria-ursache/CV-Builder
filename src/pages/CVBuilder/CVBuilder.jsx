@@ -2,12 +2,21 @@ import { useState, useCallback, useEffect } from 'react';
 import './CVBuilder.css';
 import CVBuilderMainContainer from '../../components/CVBuilderMainContainer/CVBuilderMainContainer';
 import CVBuilderView from '../../components/CVBuilderVIew/CVBuilderVIew';
+import CVBuilderBtns from '../../components/CVBuilderMainContainer/CVBuilderBtns';
 import { PDFViewer } from '@react-pdf/renderer';
 import initialValuesCV from '../../helper/initialValuesCV';
 import { ArrowUp } from 'lucide-react';
 
 export default function CVBuilder() {
-  const [cvData, setCvData] = useState(initialValuesCV);
+  const [cvData, setCvData] = useState(() => {
+    // Load from localStorage or use initial values
+    try {
+      const savedData = localStorage.getItem('cvData');
+      return savedData ? JSON.parse(savedData) : initialValuesCV;
+    } catch {
+      return initialValuesCV;
+    }
+  });
 
   const [debouncedCvData, setDebouncedCvData] = useState(cvData);
 
@@ -51,7 +60,12 @@ export default function CVBuilder() {
   return (
     <div className="CVB">
       <div className="editor-side">
-        <CVBuilderMainContainer onUpdate={handleChange} />
+        <CVBuilderMainContainer
+          onUpdate={handleChange}
+          cvData={cvData}
+          setCvData={setCvData}
+          initialValues={initialValuesCV}
+        />
       </div>
 
       <div className="viewer-side">
