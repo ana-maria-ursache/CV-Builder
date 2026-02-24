@@ -1,5 +1,10 @@
 import './CVBuilderMainContainer.css';
 import { memo } from 'react';
+import Section from './Section';
+import InputPair from './InputPair';
+import TextAreaField from './TextAreaField';
+import SingleFieldSection from './SingleFieldSection';
+import PairWithTextAreaSection from './PairWithTextAreaSection';
 
 function CVBuilderMainContainer({ onUpdate }) {
   return (
@@ -11,340 +16,189 @@ function CVBuilderMainContainer({ onUpdate }) {
         </header>
 
         <form className="cv-form">
-          <section className="cv-section">
-            <h2 className="section-label">Informații Personale</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group">
-                <label>Nume Complet</label>
-                <input
-                  name="personal.name"
-                  type="text"
-                  onChange={onUpdate}
-                  className="cv-field"
-                  placeholder="Your Name"
-                />
-              </div>
+          {/* Personal Section */}
+          <Section title="Informații Personale">
+            <InputPair
+              field1={{ label: 'Nume Complet', name: 'personal.name', placeholder: 'Your Name' }}
+              field2={{
+                label: 'Numar de telefon',
+                name: 'personal.phone',
+                placeholder: 'Phone number',
+              }}
+              onChange={onUpdate}
+            />
+            <InputPair
+              field1={{
+                label: 'Locație',
+                name: 'personal.location',
+                placeholder: 'ex: Iasi, Romania',
+              }}
+              field2={{
+                label: 'Email',
+                name: 'personal.email',
+                type: 'email',
+                placeholder: 'ex: your.email@example.com',
+              }}
+              onChange={onUpdate}
+            />
+            <InputPair
+              field1={{
+                label: 'Github',
+                name: 'personal.github',
+                placeholder: 'ex: your-github-username',
+              }}
+              field2={{
+                label: 'Linkedin',
+                name: 'personal.linkedin',
+                placeholder: 'ex: your-linkedin-profile',
+              }}
+              onChange={onUpdate}
+            />
+          </Section>
 
-              <div className="cv-input-group">
-                <label>Numar de telefon</label>
-                <input
-                  name="personal.phone"
-                  type="text"
-                  onChange={onUpdate}
-                  className="cv-field"
-                  placeholder="Phone number"
-                />
-              </div>
+          {/* Experience Section */}
+          <Section title="Experiență Profesională">
+            <InputPair
+              field1={{
+                label: 'Rol',
+                name: 'experience.0.role',
+                placeholder: 'ex: Full Stack - Intern',
+              }}
+              field2={{
+                label: 'Companie',
+                name: 'experience.0.company',
+                placeholder: 'ex: Cognizant',
+              }}
+              onChange={onUpdate}
+            />
+            <InputPair
+              field1={{ label: 'Date', name: 'experience.0.date', placeholder: 'ex: 2020 - 2021' }}
+              field2={{
+                label: 'Locatie',
+                name: 'experience.0.location',
+                placeholder: 'ex: Iasi, Romania',
+              }}
+              onChange={onUpdate}
+            />
+            <TextAreaField
+              label="Descriere"
+              name="experience.0.description"
+              placeholder="Descrie task-urile tale..."
+              onChange={onUpdate}
+            />
+          </Section>
 
-              <div className="cv-input-group">
-                <label>Locație</label>
-                <input
-                  name="personal.location"
-                  type="text"
-                  onChange={onUpdate}
-                  className="cv-field"
-                  placeholder="ex: Iasi, Romania"
-                />
-              </div>
+          {/* Education Section */}
+          <Section title="Educație">
+            <InputPair
+              field1={{
+                label: 'Instituție',
+                name: 'education.0.university',
+                placeholder: 'ex: UAIC Iasi',
+              }}
+              field2={{
+                label: 'Diplomă',
+                name: 'education.0.degree',
+                placeholder: "ex: Master's Degree",
+              }}
+              onChange={onUpdate}
+            />
+            <InputPair
+              field1={{
+                label: 'Locatie',
+                name: 'education.0.location',
+                placeholder: 'ex: Iasi, Romania',
+              }}
+              field2={{ label: 'Data', name: 'education.0.date', placeholder: 'ex: 2020 - 2021' }}
+              onChange={onUpdate}
+            />
+            <TextAreaField
+              label="Descriere"
+              name="education.0.description"
+              placeholder="Descrie task-urile tale..."
+              onChange={onUpdate}
+            />
+          </Section>
 
-              <div className="cv-input-group">
-                <label>Email</label>
-                <input
-                  name="personal.email"
-                  type="email"
-                  onChange={onUpdate}
-                  className="cv-field"
-                  placeholder="ex: your.email@example.com"
-                />
-              </div>
+          {/* Skills Section */}
+          <Section title="Abilități">
+            <InputPair
+              field1={{
+                label: 'Hard Skills',
+                name: 'skills.hard',
+                placeholder: 'AWS, Terraform, Docker...',
+                fullWidth: true,
+              }}
+              onChange={onUpdate}
+            />
+            <InputPair
+              field1={{
+                label: 'Soft Skills',
+                name: 'skills.soft',
+                placeholder: 'Punctualitate, Comunicare, Leadership...',
+                fullWidth: true,
+              }}
+              onChange={onUpdate}
+            />
+          </Section>
 
-              <div className="cv-input-group">
-                <label>Github</label>
-                <input
-                  name="personal.github"
-                  type="text"
-                  onChange={onUpdate}
-                  className="cv-field"
-                  placeholder="ex: your-github-username"
-                />
-              </div>
+          {/* Projects Section */}
+          <PairWithTextAreaSection
+            title="Proiecte Personale"
+            field1={{
+              label: 'Titlu Proiect',
+              name: 'projects.0.title',
+              placeholder: 'ex: KeyStroke',
+            }}
+            field2={{
+              label: 'Tehnologii (Stack)',
+              name: 'projects.0.stack',
+              placeholder: 'ex: MongoDB, Express...',
+            }}
+            textAreaLabel="Descriere Proiect"
+            textAreaName="projects.0.description"
+            textAreaPlaceholder="Descrie task-urile tale..."
+            onChange={onUpdate}
+          />
 
-              <div className="cv-input-group">
-                <label>Linkedin</label>
-                <input
-                  name="personal.linkedin"
-                  type="text"
-                  onChange={onUpdate}
-                  className="cv-field"
-                  placeholder="ex: your-linkedin-profile"
-                />
-              </div>
-            </div>
-          </section>
+          {/* Certificates Section */}
+          <SingleFieldSection
+            title="Certificates and Trainings"
+            fieldName="certificates"
+            placeholder="ex: AWS Certified, Google Cloud Training..."
+            onChange={onUpdate}
+          />
 
-          <section className="cv-section">
-            <h2 className="section-label">Experiență Profesională</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group">
-                <label>Rol</label>
-                <input
-                  name="experience.0.role"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: Full Stack - Intern"
-                  onChange={onUpdate}
-                />
-              </div>
-              <div className="cv-input-group">
-                <label>Companie</label>
-                <input
-                  name="experience.0.company"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: Cognizant"
-                  onChange={onUpdate}
-                />
-              </div>
+          {/* Volunteering Section */}
+          <PairWithTextAreaSection
+            title="Voluntariat & Training"
+            field1={{
+              label: 'Organizație & Rol',
+              name: 'volunteering.0.role',
+              placeholder: 'ex: ASII - Project Management',
+            }}
+            field2={{ label: 'Data', name: 'volunteering.0.date', placeholder: 'ex: 2020 - 2021' }}
+            textAreaLabel="Descriere"
+            textAreaName="volunteering.0.description"
+            textAreaPlaceholder="Descrie task-urile tale..."
+            onChange={onUpdate}
+          />
 
-              <div className="cv-input-group">
-                <label>Date</label>
-                <input
-                  name="experience.0.date"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: 2020 - 2021"
-                  onChange={onUpdate}
-                />
-              </div>
+          {/* Languages Section */}
+          <SingleFieldSection
+            title="Languages"
+            fieldName="languages"
+            placeholder="ex: English - C1, French - B2"
+            onChange={onUpdate}
+          />
 
-              <div className="cv-input-group">
-                <label>Locatie</label>
-                <input
-                  name="experience.0.location"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: Iasi, Romania"
-                  onChange={onUpdate}
-                />
-              </div>
-
-              <div className="cv-input-group full-width">
-                <label>Descriere</label>
-                <textarea
-                  name="experience.0.description"
-                  className="cv-field cv-textarea"
-                  rows="3"
-                  placeholder="Descrie task-urile tale..."
-                  onChange={onUpdate}
-                ></textarea>
-              </div>
-            </div>
-          </section>
-
-          <section className="cv-section">
-            <h2 className="section-label">Educație</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group">
-                <label>Instituție</label>
-                <input
-                  name="education.0.university"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: UAIC Iasi"
-                  onChange={onUpdate}
-                />
-              </div>
-              <div className="cv-input-group">
-                <label>Diplomă</label>
-                <input
-                  name="education.0.degree"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: Master's Degree"
-                  onChange={onUpdate}
-                />
-              </div>
-
-              <div className="cv-input-group">
-                <label>Locatie</label>
-                <input
-                  name="education.0.location"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: Iasi, Romania"
-                  onChange={onUpdate}
-                />
-              </div>
-
-              <div className="cv-input-group">
-                <label>Data</label>
-                <input
-                  name="education.0.date"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: 2020 - 2021"
-                  onChange={onUpdate}
-                />
-              </div>
-
-              <div className="cv-input-group">
-                <label>Descriere</label>
-                <textarea
-                  name="education.0.description"
-                  className="cv-field cv-textarea"
-                  rows="3"
-                  placeholder="Descrie task-urile tale..."
-                  onChange={onUpdate}
-                ></textarea>
-              </div>
-            </div>
-          </section>
-
-          <section className="cv-section">
-            <h2 className="section-label">Abilități</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group full-width">
-                <label>Hard Skills</label>
-                <input
-                  name="skills.hard"
-                  type="text"
-                  className="cv-field"
-                  placeholder="AWS, Terraform, Docker..."
-                  onChange={onUpdate}
-                />
-              </div>
-              <div className="cv-input-group full-width">
-                <label>Soft Skills</label>
-                <input
-                  name="skills.soft"
-                  type="text"
-                  className="cv-field"
-                  placeholder="Punctualitate, Comunicare, Leadership..."
-                  onChange={onUpdate}
-                />
-              </div>
-            </div>
-          </section>
-
-          <section className="cv-section">
-            <h2 className="section-label">Proiecte Personale</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group">
-                <label>Titlu Proiect</label>
-                <input
-                  name="projects.0.title"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: KeyStroke"
-                  onChange={onUpdate}
-                />
-              </div>
-              <div className="cv-input-group">
-                <label>Tehnologii (Stack)</label>
-                <input
-                  name="projects.0.stack"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: MongoDB, Express..."
-                  onChange={onUpdate}
-                />
-              </div>
-
-              <div className="cv-input-group">
-                <label>Descriere Proiect</label>
-                <textarea
-                  name="projects.0.description"
-                  className="cv-field cv-textarea"
-                  rows="3"
-                  placeholder="Descrie task-urile tale..."
-                  onChange={onUpdate}
-                ></textarea>
-              </div>
-            </div>
-          </section>
-
-          <section className="cv-section">
-            <h2 className="section-label">Cerificates and Trainings</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group full-width">
-                <input
-                  name="certificates"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: AWS Certified, Google Cloud Training..."
-                  onChange={onUpdate}
-                />
-              </div>
-            </div>
-          </section>
-
-          <section className="cv-section">
-            <h2 className="section-label">Voluntariat & Training</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group full-width">
-                <label>Organizație & Rol</label>
-                <input
-                  name="volunteering.0.role"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: ASII - Project Management"
-                  onChange={onUpdate}
-                />
-              </div>
-
-              <div className="cv-input-group full-width">
-                <label>Data</label>
-                <input
-                  name="volunteering.0.date"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: 2020 - 2021"
-                  onChange={onUpdate}
-                />
-              </div>
-
-              <div className="cv-input-group full-width">
-                <label>Descriere</label>
-                <textarea
-                  name="volunteering.0.description"
-                  className="cv-field cv-textarea"
-                  rows="3"
-                  placeholder="Descrie task-urile tale..."
-                  onChange={onUpdate}
-                ></textarea>
-              </div>
-            </div>
-          </section>
-
-          <section className="cv-section">
-            <h2 className="section-label">Languages</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group full-width">
-                <input
-                  name="languages"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: English - C1, French - B2"
-                  onChange={onUpdate}
-                />
-              </div>
-            </div>
-          </section>
-
-          <section className="cv-section">
-            <h2 className="section-label">Interests</h2>
-            <div className="cv-grid">
-              <div className="cv-input-group full-width">
-                <input
-                  name="interests"
-                  type="text"
-                  className="cv-field"
-                  placeholder="ex: Reading, Traveling, Photography"
-                  onChange={onUpdate}
-                />
-              </div>
-            </div>
-          </section>
+          {/* Interests Section */}
+          <SingleFieldSection
+            title="Interests"
+            fieldName="interests"
+            placeholder="ex: Reading, Traveling, Photography"
+            onChange={onUpdate}
+          />
 
           <div className="cv-buttons">
             <button type="submit" className="cv-btn">
