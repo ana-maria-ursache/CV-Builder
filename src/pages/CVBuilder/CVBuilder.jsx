@@ -1,61 +1,30 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import './CVBuilder.css';
 import CVBuilderMainContainer from '../../components/CVBuilderMainContainer/CVBuilderMainContainer';
 import CVBuilderView from '../../components/CVBuilderVIew/CVBuilderVIew';
 import { PDFViewer } from '@react-pdf/renderer';
+import initialValuesCV from '../../helper/initialValuesCV';
+import { ArrowUp } from 'lucide-react';
 
 export default function CVBuilder() {
-  const [cvData, setCvData] = useState({
-    personal: {
-      name: 'Your Name',
-      phone: '+1 (555) 000-0000',
-      email: 'your.email@example.com',
-      location: 'City, Country',
-      github: 'your-github-username',
-      linkedin: 'your-linkedin-profile',
-    },
-    experience: [
-      {
-        role: 'Job Title',
-        company: 'Company Name',
-        date: 'Month Year - Present',
-        location: 'City, Country',
-        description: 'Describe your responsibilities and achievements...',
-      },
-    ],
-    education: [
-      {
-        university: 'University Name',
-        degree: "Bachelor's Degree",
-        location: 'City, Country',
-        date: 'Year - Year',
-        description: 'Describe your studies and achievements...',
-      },
-    ],
-    skills: {
-      hard: 'Add your hard skills here (e.g., AWS, Python, React)',
-      soft: 'Add your soft skills here (e.g., Leadership, Communication)',
-    },
-    projects: [
-      {
-        title: 'Project Title',
-        stack: 'Tech stack used',
-        description: 'Describe your project and its features...',
-      },
-    ],
-    certificates: 'List your certificates and trainings...',
-    volunteering: [
-      {
-        role: 'Organization & Role',
-        date: 'Year - Year',
-        description: 'Describe your volunteering experience...',
-      },
-    ],
-    languages: 'Language: Proficiency Level',
-    interests: 'Your interests and hobbies...',
-  });
+  const [cvData, setCvData] = useState(initialValuesCV);
 
-  const handleChange = (e) => {
+  const [debouncedCvData, setDebouncedCvData] = useState(cvData);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedCvData(cvData);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [cvData]);
+
+  const topFunction = () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  };
+
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
 
     if (name.includes('.')) {
@@ -77,19 +46,23 @@ export default function CVBuilder() {
     } else {
       setCvData((prev) => ({ ...prev, [name]: value }));
     }
-  };
+  }, []);
 
   return (
     <div className="CVB">
       <div className="editor-side">
-        <CVBuilderMainContainer cvData={cvData} onUpdate={handleChange} />
+        <CVBuilderMainContainer onUpdate={handleChange} />
       </div>
 
       <div className="viewer-side">
         <PDFViewer width="100%" height="100%" showToolbar={false} className="pdf-viewer-frame">
-          <CVBuilderView data={cvData} />
+          <CVBuilderView data={debouncedCvData} />
         </PDFViewer>
       </div>
+
+      <button className="back-to-top" onClick={topFunction} aria-label="Back to top">
+        <ArrowUp className="icon-style" size={24} />
+      </button>
     </div>
   );
 }
