@@ -10,24 +10,26 @@ import CVBuilderView from '../CVBuilderVIew/CVBuilderVIew';
 const getFilteredData = (currentData, initialData) => {
   const filtered = {};
 
+  if (!currentData) return filtered;
+
   Object.keys(currentData).forEach((key) => {
     const value = currentData[key];
-    const initialValue = initialData[key];
-
+    const initialValue = initialData ? initialData[key] : undefined;
     if (JSON.stringify(value) !== JSON.stringify(initialValue)) {
       if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-        const nestedFiltered = getFilteredData(value, initialValue);
+        const nestedFiltered = getFilteredData(value, initialValue || {});
         if (Object.keys(nestedFiltered).length > 0) {
           filtered[key] = nestedFiltered;
         }
       } else if (Array.isArray(value)) {
         const filteredArray = value.filter((item, index) => {
-          return JSON.stringify(item) !== JSON.stringify(initialValue[index]);
+          const initArrVal = initialValue && initialValue[index] ? initialValue[index] : {};
+          return JSON.stringify(item) !== JSON.stringify(initArrVal);
         });
         if (filteredArray.length > 0) {
           filtered[key] = filteredArray;
         }
-      } else {
+      } else if (value !== '' && value !== null) {
         filtered[key] = value;
       }
     }
