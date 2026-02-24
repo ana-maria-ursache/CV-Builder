@@ -1,16 +1,20 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-function CVBuilderBtns({ cvData, setCvData, initialValues }) {
+import { useDispatch } from 'react-redux';
+import { resetCV, updateField } from '../../store/cvSlice';
+
+function CVBuilderBtns({ cvData }) {
+  const dispach = useDispatch();
   const { t } = useTranslation();
 
   const saveCV = () => {
-    setCvData(initialValues);
+    dispach(updateField(cvData));
     //TODO: save in baza de date un anumit id
   };
 
-  const resetCV = () => {
-    setCvData(initialValues);
+  const handleReset = () => {
+    dispach(resetCV());
   };
 
   const downloadCV = () => {
@@ -22,7 +26,6 @@ function CVBuilderBtns({ cvData, setCvData, initialValues }) {
     link.download = `CV_${new Date().getTime()}.json`;
     link.click();
     URL.revokeObjectURL(url);
-
     //TODO: download the pdf
   };
 
@@ -34,7 +37,7 @@ function CVBuilderBtns({ cvData, setCvData, initialValues }) {
       <button type="button" onClick={downloadCV} className="cv-btn">
         {t('download-pdf')}
       </button>
-      <button type="button" onClick={resetCV} className="cv-btn">
+      <button type="button" onClick={handleReset} className="cv-btn">
         {t('reset-btn')}
       </button>
     </div>
