@@ -3,10 +3,11 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import '../../helper/i18n';
 import { useTranslation } from 'react-i18next';
+import { Toaster } from 'sonner';
 
 export default function Layout() {
   const { t } = useTranslation();
-  
+
   return (
     <div className="main-container">
       <Navbar />
@@ -16,6 +17,7 @@ export default function Layout() {
       <footer>
         <p className="footer-text">&copy; 2026 KeyStroke. {t('footer')}</p>
       </footer>
+      <Toaster richColors position="top-right" />
     </div>
   );
 }

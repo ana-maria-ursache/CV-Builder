@@ -1,5 +1,3 @@
-// import { useState, useEffect } from 'react';
-// import supabase from '../../helper/supabaseClient';
 import './LandingPage.css';
 import '../../helper/i18n';
 import { useTranslation } from 'react-i18next';
