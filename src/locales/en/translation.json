@@ -84,5 +84,9 @@
     "cv-send":"In this email is attached the CV you requested.",
     "error-cv-list":"Couldn't load the list of CVs.",
     "version-deleted": "Version deleted successfully!",
-    "error-delete-version": "Error deleting version. Please try again."
+    "error-delete-version": "Error deleting version. Please try again.",
+    "search-cv":"Search by CV name...",
+    "newest":"Newest",
+    "oldest":"Oldest",
+    "no-results":"No CVs found"
 }
