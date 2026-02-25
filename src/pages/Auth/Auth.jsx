@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
-import supabase from '../../helper/supabaseClient';
+import supabase from '../../utils/supabaseClient';
 import { setUser, setRole } from '../../store/userSlice';
 import './Auth.css';
 

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import initialValuesCV from '../helper/initialValuesCV';
+import initialValuesCV from '../utils/initialValuesCV';
 
 // slice = initial values + reducers(update cases)
 const cvSlice = createSlice({

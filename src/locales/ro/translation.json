@@ -73,5 +73,13 @@
     "add-password":"Introdu parola ta",
     "6-caractere":"Minim 6 caractere",
     "nu-ai-cont":"Nu ai cont? ",
-    "ai-cont":"Ai deja cont? "
+    "ai-cont":"Ai deja cont? ",
+    "niciun-cv":"Nu ai nicio versiune salvată încă.",
+    "saved-at":"Salvat la:",
+    "delete-version":"Șterge",
+    "see-cv":"Încarcă",
+    "saved-versions":"Versiunile tale salvate:",
+    "json-btn":"Descarcă JSON",
+    "send-to-email-btn":"Trimite pe email",
+    "cv-send":"La acest email este atasat CV-ul dorit de tine."
 }   

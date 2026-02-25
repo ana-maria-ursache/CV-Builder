@@ -22,7 +22,7 @@
     "toast-error-generic": "Oops! Something went wrong. Please try again later.",
     "footer":"All rights reserved.",
     "save-progr":"Save Progress",
-    "download-pdf":"Download PDF",
+    "download-pdf":"Download as PDF",
     "reset-btn":"Reset",
     "cv-editor":"CV Editor",
     "personal-info":"Personal Information",
@@ -73,5 +73,13 @@
     "add-password":"Enter your password",
     "6-character":"Minimum 6 characters",
     "nu-ai-cont":"Don't have an account? ",
-    "ai-cont":"Already have an account? "
+    "ai-cont":"Already have an account? ",
+    "niciun-cv":"You don't have any saved CVs yet.",
+    "saved-at":"Saved at:",
+    "delete-version":"Delete",
+    "see-cv":"Open",
+    "saved-versions":"Your saved versions:",
+    "json-btn":"Download as JSON",
+    "send-to-email-btn":"Send to email",
+    "cv-send":"In this email is attached the CV you requested."
 }
