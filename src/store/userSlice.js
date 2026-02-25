@@ -15,8 +15,11 @@ const userSlice = createSlice({
     setUser: (state, action) => {
       state.isLoggedIn = !!action.payload;
       state.currentUser = action.payload;
-      state.isAdmin = action.payload?.app_metadata?.role === 'admin';
       state.loading = false;
+    },
+
+    setRole: (state, action) => {
+      state.isAdmin = action.payload === 'admin';
     },
 
     clearUser: (state) => {
@@ -32,5 +35,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, clearUser, setLoading } = userSlice.actions;
+export const { setUser, setRole, clearUser, setLoading } = userSlice.actions;
 export default userSlice.reducer;

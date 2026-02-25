@@ -45,14 +45,20 @@ export default function Navbar() {
         <NavLink to="/builder/:id" className="nav-button" onClick={() => setIsOpen(false)}>
           {t('cv-builder')}
         </NavLink>
-        {isLoggedIn ? (
+        {isLoggedIn && !isAdmin ? (
           <NavLink to="/mycvs" className="nav-button" onClick={() => setIsOpen(false)}>
             {t('my-cvs')}
           </NavLink>
         ) : null}
-        <NavLink to="/contact" className="nav-button" onClick={() => setIsOpen(false)}>
-          {t('contact')}
-        </NavLink>
+        {!isAdmin ? (
+          <NavLink to="/contact" className="nav-button" onClick={() => setIsOpen(false)}>
+            {t('contact')}
+          </NavLink>
+        ) : (
+          <NavLink to="/dashboard" className="nav-button" onClick={() => setIsOpen(false)}>
+            {t('dashboard')}
+          </NavLink>
+        )}
         {isLoggedIn ? (
           <button className="nav-button logout-btn" onClick={handleLogout}>
             {t('logout') || 'Logout'}

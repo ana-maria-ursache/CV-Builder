@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import supabase from '../../helper/supabaseClient';
-import { setUser } from '../../store/userSlice';
+import { setUser, setRole } from '../../store/userSlice';
 import './Auth.css';
 
 export default function Auth() {
@@ -29,7 +29,19 @@ export default function Auth() {
     if (error) {
       alert('Eroare: ' + error.message);
     } else {
-      dispatch(setUser(data.user));
+      const currentUser = data.user;
+      dispatch(setUser(currentUser));
+
+      const { data: profileData, error: profileError } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', currentUser.id)
+        .single();
+
+      if (!profileError && profileData?.role) {
+        dispatch(setRole(profileData.role));
+      }
+
       alert('Conectat cu succes!');
       setEmail('');
       setPassword('');
