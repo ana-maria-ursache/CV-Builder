@@ -45,7 +45,7 @@ export default function Navbar() {
         <NavLink to="/builder/:id" className="nav-button" onClick={() => setIsOpen(false)}>
           {t('cv-builder')}
         </NavLink>
-        {isLoggedIn && !isAdmin ? (
+        {isLoggedIn ? (
           <NavLink to="/mycvs" className="nav-button" onClick={() => setIsOpen(false)}>
             {t('my-cvs')}
           </NavLink>

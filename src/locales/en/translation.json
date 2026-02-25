@@ -57,5 +57,21 @@
     "university":"University",
     "degree":"Degree",
     "my-cvs":"My CVs",
-    "dashboard":"Dashboard"
+    "dashboard":"Dashboard",
+    "auth-email-password-required":"Please fill in email and password!",
+    "auth-all-fields-required":"Please fill in all fields!",
+    "auth-passwords-mismatch":"Passwords do not match!",
+    "auth-password-min-length":"Password must be at least 6 characters!",
+    "auth-login-success":"Successfully logged in!",
+    "auth-signup-success":"Account created successfully! Please check your email for confirmation.",
+    "auth-error":"Error",
+    "connect":"Connect",
+    "signup":"Sign Up",
+    "password":"Password",
+    "se-incarca":"Loading...",
+    "confirm-password":"Confirm Password",
+    "add-password":"Enter your password",
+    "6-character":"Minimum 6 characters",
+    "nu-ai-cont":"Don't have an account? ",
+    "ai-cont":"Already have an account? "
 }

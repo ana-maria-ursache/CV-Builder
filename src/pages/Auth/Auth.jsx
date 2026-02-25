@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { toast } from 'sonner';
 import supabase from '../../helper/supabaseClient';
 import { setUser, setRole } from '../../store/userSlice';
 import './Auth.css';
@@ -8,6 +10,8 @@ import './Auth.css';
 export default function Auth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
   const [formMode, setFormMode] = useState('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +22,7 @@ export default function Auth() {
     e.preventDefault();
 
     if (!email || !password) {
-      alert('Completează email-ul și parola!');
+      toast.error(t('auth-email-password-required'));
       return;
     }
 
@@ -27,7 +31,7 @@ export default function Auth() {
     const { error, data } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
-      alert('Eroare: ' + error.message);
+      toast.error(`${t('auth-error')}: ${error.message}`);
     } else {
       const currentUser = data.user;
       dispatch(setUser(currentUser));
@@ -42,7 +46,7 @@ export default function Auth() {
         dispatch(setRole(profileData.role));
       }
 
-      alert('Conectat cu succes!');
+      toast.success(t('auth-login-success'));
       setEmail('');
       setPassword('');
       navigate('/');
@@ -55,17 +59,17 @@ export default function Auth() {
     e.preventDefault();
 
     if (!email || !password || !confirmPassword) {
-      alert('Completează toate câmpurile!');
+      toast.error(t('auth-all-fields-required'));
       return;
     }
 
     if (password !== confirmPassword) {
-      alert('Parolele nu se potrivesc!');
+      toast.error(t('auth-passwords-mismatch'));
       return;
     }
 
     if (password.length < 6) {
-      alert('Parola trebuie să aibă cel puțin 6 caractere!');
+      toast.error(t('auth-password-min-length'));
       return;
     }
 
@@ -74,10 +78,10 @@ export default function Auth() {
     const { error, data } = await supabase.auth.signUp({ email, password });
 
     if (error) {
-      alert('Eroare: ' + error.message);
+      toast.error(`${t('auth-error')}: ${error.message}`);
     } else {
       dispatch(setUser(data.user));
-      alert('Cont creat cu succes! Verifică email-ul pentru confirmație.');
+      toast.success(t('auth-signup-success'));
       setEmail('');
       setPassword('');
       setConfirmPassword('');
@@ -90,7 +94,7 @@ export default function Auth() {
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h1>{formMode === 'login' ? 'Conectare' : 'Creare Cont'}</h1>
+        <h1>{formMode === 'login' ? t('connect') : t('signup')}</h1>
 
         {formMode === 'login' ? (
           // Login Form
@@ -102,25 +106,25 @@ export default function Auth() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Introdu email-ul tău"
+                placeholder={t('email-placeholder')}
                 required
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="pass-login">Parolă</label>
+              <label htmlFor="pass-login">{t('password')}</label>
               <input
                 id="pass-login"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Introdu parola ta"
+                placeholder={t('add-password')}
                 required
               />
             </div>
             <button type="submit" disabled={isSending} className="auth-btn">
               {' '}
-              {isSending ? 'Se conecteaza...' : 'Conectare'}
+              {isSending ? t('se-incarca') : t('login')}
             </button>
           </form>
         ) : (
@@ -133,34 +137,34 @@ export default function Auth() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Introdu email-ul tău"
+                placeholder={t('email-placeholder')}
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Parolă</label>
+              <label htmlFor="password">{t('password')}</label>
               <input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Cel puțin 6 caractere"
+                placeholder={t('6-characters')}
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="confirm-password">Confirmare Parolă</label>
+              <label htmlFor="confirm-password">{t('confirm-password')}</label>
               <input
                 id="confirm-password"
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirmă parola"
+                placeholder={t('confirm-password')}
                 required
               />
             </div>
             <button type="submit" disabled={isSending} className="auth-btn">
-              {isSending ? 'Se creează...' : 'Crează Cont'}
+              {isSending ? t('se-incarca') : t('signup')}
             </button>
           </form>
         )}
@@ -168,7 +172,7 @@ export default function Auth() {
         <div className="auth-toggle">
           {formMode === 'login' ? (
             <p>
-              Nu ai cont?{' '}
+              {t('nu-ai-cont')}{' '}
               <button
                 type="button"
                 onClick={() => {
@@ -184,7 +188,7 @@ export default function Auth() {
             </p>
           ) : (
             <p>
-              Ai deja cont?{' '}
+              {t('ai-cont')}{' '}
               <button
                 type="button"
                 onClick={() => {
@@ -195,7 +199,7 @@ export default function Auth() {
                 }}
                 className="toggle-btn"
               >
-                Conectează-te
+                {t('connect')}
               </button>
             </p>
           )}

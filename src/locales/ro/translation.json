@@ -57,5 +57,21 @@
     "interests":"Interese",
     "loading":"Se încarcă...",
     "my-cvs":"CV-urile mele",
-    "dashboard":"Tablou de bord"
+    "dashboard":"Tablou de bord",
+    "auth-email-password-required":"Completează email-ul și parola!",
+    "auth-all-fields-required":"Completează toate câmpurile!",
+    "auth-passwords-mismatch":"Parolele nu se potrivesc!",
+    "auth-password-min-length":"Parola trebuie să aibă cel puțin 6 caractere!",
+    "auth-login-success":"Conectat cu succes!",
+    "auth-signup-success":"Cont creat cu succes! Verifică email-ul pentru confirmație.",
+    "auth-error":"Eroare",
+    "connect":"Conectează-te",
+    "signup":"Înregistrează-te",
+    "password":"Parolă",
+    "se-incarca":"Se încarcă...",
+    "confirm-password":"Confirmare Parolă",
+    "add-password":"Introdu parola ta",
+    "6-caractere":"Minim 6 caractere",
+    "nu-ai-cont":"Nu ai cont? ",
+    "ai-cont":"Ai deja cont? "
 }   
