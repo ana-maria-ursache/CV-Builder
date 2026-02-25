@@ -1,5 +1,8 @@
 import { useMemo, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import supabase from '../../helper/supabaseClient';
+import { toast } from 'sonner';
 
 import { useDispatch } from 'react-redux';
 import { resetCV } from '../../store/cvSlice';
@@ -42,27 +45,30 @@ function CVBuilderBtns({ cvData, initialValues }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
+  const { isLoggedIn, currentUser } = useSelector((state) => state.user);
+
   const filteredCvData = useMemo(
     () => getFilteredData(cvData, initialValues),
     [cvData, initialValues]
   );
 
-  // const saveCV = async () => { //TODO: implement save to DB
-  //   try {
-  //     // const { id } = useParams();
+  const saveCV = async () => {
+    try {
+      const { error } = await supabase.from('cv_versions').insert([
+        {
+          user_id: currentUser.id,
+          cv_content: filteredCvData,
+          cv_title: `${cvData?.personal?.name || 'Untitled'}_${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`,
+          version_name: `Versiune ${new Date().toLocaleDateString()}`,
+        },
+      ]);
 
-  //     const { data, error } = await supabase.from('cv_storage').upsert({
-  //       id: id,
-  //       content: filteredCvData,
-  //       last_updated: new Date(),
-  //     });
-
-  //     if (error) throw error;
-  //     toast.success(t('save-success'));
-  //   } catch (err) {
-  //     toast.error(t('save-failed'));
-  //   }
-  // };
+      if (error) throw error;
+      toast.success('Versiunea CV-ului a fost salvată!');
+    } catch (error) {
+      toast.error(error.message || t('save-failed'));
+    }
+  };
 
   const handleReset = () => {
     dispatch(resetCV());
@@ -82,9 +88,11 @@ function CVBuilderBtns({ cvData, initialValues }) {
 
   return (
     <div className="cv-buttons">
-      {/* <button type="button" onClick={saveCV} className="cv-btn">
-        {t('save-progr')}
-      </button> */}
+      {isLoggedIn && (
+        <button type="button" onClick={saveCV} className="cv-btn">
+          {t('save-progr')}
+        </button>
+      )}
 
       <PDFDownloadLink
         document={<CVBuilderView data={filteredCvData} />}
