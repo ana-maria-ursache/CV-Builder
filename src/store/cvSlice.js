@@ -16,9 +16,12 @@ const cvSlice = createSlice({
       }
       current[parts[parts.length - 1]] = value;
     },
+    loadCV: (state, action) => {
+      return action.payload;
+    },
     resetCV: () => initialValuesCV,
   },
 });
 
-export const { updateField, resetCV } = cvSlice.actions;
+export const { updateField, loadCV, resetCV } = cvSlice.actions;
 export default cvSlice.reducer;

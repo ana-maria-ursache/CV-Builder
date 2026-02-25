@@ -47,6 +47,15 @@ export default function CVUserList() {
     setCvs((prev) => prev.filter((cv) => cv.id !== id));
   };
 
+  const openCVVersion = (cvData, id) => {
+    const allCVs = JSON.parse(localStorage.getItem('allCVs') || '{}');
+    allCVs[id] = cvData;
+    localStorage.setItem('allCVs', JSON.stringify(allCVs));
+
+    const url = `/builder/${id}`;
+    window.location.href = url;
+  };
+
   if (loading) return <div className="list-container">{t('loading')}</div>;
 
   return (
@@ -69,9 +78,9 @@ export default function CVUserList() {
               <div className="cv-card-actions">
                 <button
                   className="action-btn view"
-                  onClick={() => console.log('Încarcă în editor:', cv.cv_content)}
+                  onClick={() => openCVVersion(cv.cv_content, cv.id)}
                 >
-                  {t('see-cv')} {/* TODO */}
+                  {t('see-cv')}
                 </button>
                 <button onClick={() => deleteCVVersion(cv.id)} className="action-btn delete">
                   {t('delete-version')}
