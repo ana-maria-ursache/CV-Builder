@@ -2,6 +2,7 @@
 
 import {configureStore} from '@reduxjs/toolkit';
 import cvReducer from './cvSlice'; 
+import userStateReducer from './userSlice';
 
 const loggerMiddleware = (store) => (next) => (action) => {
   console.group(action.type); 
@@ -19,6 +20,7 @@ const loggerMiddleware = (store) => (next) => (action) => {
 export const store = configureStore({
   reducer: {
     cv: cvReducer,
+    user: userStateReducer,
   },
   middleware: (getDefaultMiddleware) => 
     getDefaultMiddleware().concat(loggerMiddleware),
