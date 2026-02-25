@@ -5,6 +5,7 @@ import Layout from './pages/Layout/Layout';
 import CVBuilder from './pages/CVBuilder/CVBuilder';
 import Contact from './pages/Contact/Contact';
 import Auth from './pages/Auth/Auth';
+import CVUserList from './pages/CVUserList/CVUserList';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="builder/:id" element={<CVBuilder />} />
           <Route path="contact" element={<Contact />} />
           <Route path="auth" element={<Auth />} />
+          <Route path="mycvs" element={<CVUserList />} />
         </Route>
       </Routes>
     </BrowserRouter>
