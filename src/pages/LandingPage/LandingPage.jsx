@@ -1,5 +1,5 @@
 import './LandingPage.css';
-import '../../helper/i18n';
+import '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
 
 export default function LandingPage() {
