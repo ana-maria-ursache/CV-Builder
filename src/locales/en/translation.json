@@ -81,5 +81,12 @@
     "saved-versions":"Your saved versions:",
     "json-btn":"Download as JSON",
     "send-to-email-btn":"Send to email",
-    "cv-send":"In this email is attached the CV you requested."
+    "cv-send":"In this email is attached the CV you requested.",
+    "error-cv-list":"Couldn't load the list of CVs.",
+    "version-deleted": "Version deleted successfully!",
+    "error-delete-version": "Error deleting version. Please try again.",
+    "search-cv":"Search by CV name...",
+    "newest":"Newest",
+    "oldest":"Oldest",
+    "no-results":"No CVs found"
 }

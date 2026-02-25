@@ -81,5 +81,12 @@
     "saved-versions":"Versiunile tale salvate:",
     "json-btn":"Descarcă JSON",
     "send-to-email-btn":"Trimite pe email",
-    "cv-send":"La acest email este atasat CV-ul dorit de tine."
+    "cv-send":"La acest email este atasat CV-ul dorit de tine.",
+    "error-cv-list":"'Nu am putut încărca lista de CV-uri.",
+    "version-deleted": "Versiune ștearsă cu succes!",
+    "error-delete-version": "Eroare la ștergerea versiunii. Te rugăm să încerci din nou.",
+    "search-cv":"Caută după numele CV-ului...",
+    "newest":"Cele mai noi",
+    "oldest":"Cele mai vechi",
+    "no-results":"Niciun CV găsit"
 }   

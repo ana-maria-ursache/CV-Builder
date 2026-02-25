@@ -183,7 +183,7 @@ export default function Auth() {
                 }}
                 className="toggle-btn"
               >
-                Crează cont
+                {t('signup')}
               </button>
             </p>
           ) : (
