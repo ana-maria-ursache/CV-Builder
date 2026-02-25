@@ -1,13 +1,30 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
+import supabase from '../../helper/supabaseClient';
+import { clearUser } from '../../store/userSlice';
 import './Navbar.css';
 
 export default function Navbar() {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const { isLoggedIn, isAdmin } = useSelector((state) => state.user);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  console.log('isLoggedIn:', isLoggedIn, 'isAdmin:', isAdmin);
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      alert('Eroare la deconectare: ' + error.message);
+    } else {
+      dispatch(clearUser());
+      setIsOpen(false);
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -31,9 +48,15 @@ export default function Navbar() {
         <NavLink to="/contact" className="nav-button" onClick={() => setIsOpen(false)}>
           {t('contact')}
         </NavLink>
-        <NavLink to="/auth" className="nav-button" onClick={() => setIsOpen(false)}>
-          {t('login')}
-        </NavLink>
+        {isLoggedIn ? (
+          <button className="nav-button logout-btn" onClick={handleLogout}>
+            {t('logout') || 'Logout'}
+          </button>
+        ) : (
+          <NavLink to="/auth" className="nav-button" onClick={() => setIsOpen(false)}>
+            {t('login')}
+          </NavLink>
+        )}
 
         <div className="change-lng">
           <button

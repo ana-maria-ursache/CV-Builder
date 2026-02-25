@@ -4,7 +4,7 @@ import './App.css';
 import Layout from './pages/Layout/Layout';
 import CVBuilder from './pages/CVBuilder/CVBuilder';
 import Contact from './pages/Contact/Contact';
-import Auth from './components/Auth/Auth';
+import Auth from './pages/Auth/Auth';
 
 export default function App() {
   return (
