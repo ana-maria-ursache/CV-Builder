@@ -1,32 +1,29 @@
-import supabase from '../../helper/supabaseClient';
+import supabase from '../../utils/supabaseClient';
 import './Contact.css';
 import { useFormik } from 'formik';
 import { toast } from 'sonner';
-import '../../helper/i18n';
+import '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
 import env from '../../../config';
-import emailjs from '@emailjs/browser';
+import { sendEmail } from '../../utils/sendEmail';
 
 export default function Contact() {
   const { t } = useTranslation();
 
-  const sendEmail = async (value) => {
-    var templateParams = {
-      name: value.name,
-      email: value.email,
-      subject: value.subject,
-      text: value.text,
-    };
-
-    emailjs.init({ publicKey: env.emailJsKey });
-
+  const handleContactSubmit = async (values) => {
     try {
-      const response = await emailjs.send(env.emailJsServiceID, 'template_pvluwwg', templateParams);
-      console.log('SUCCESS!', response.status, response.text);
-      return response;
+      const params = {
+        name: values.name,
+        email: values.email,
+        subject: values.subject,
+        text: values.message,
+      };
+
+      await sendEmail(params, env.emailJsServiceID, 'template_pvluwwg', env.emailJsKey);
+
+      toast.success(t('toast-success'));
     } catch (error) {
-      console.error('EMAILJS FAILED:', error);
-      throw new Error(t('email-failed'));
+      toast.error(error + '; ' + t('email-failed'));
     }
   };
 
@@ -51,7 +48,7 @@ export default function Contact() {
     },
     onSubmit: async (value, actions) => {
       try {
-        await Promise.all([addToDatabase(value), sendEmail(value)]);
+        await Promise.all([addToDatabase(value), handleContactSubmit(value)]);
         toast.success(t('toast-success'), { position: 'bottom-right' });
         actions.resetForm();
       } catch (error) {

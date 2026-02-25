@@ -1,0 +1,159 @@
+.cv-page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  min-height: 100vh;
+}
+
+.cv-document {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  border: 3px solid #000; 
+  padding: 40px;
+  box-shadow: 10px 10px 0px #000;
+}
+
+.cv-header {
+  margin-bottom: 30px;
+}
+
+.cv-title {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.header-line {
+  height: 6px;
+  background: #000;
+  width: 100px;
+  margin-top: 10px;
+}
+
+.cv-section {
+  margin-bottom: 30px;
+}
+
+.section-label {
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cv-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cv-input-group label {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cv-field {
+  border: 2px solid #000;
+  padding: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s;
+}
+
+.cv-field:focus {
+  background-color: #fff8e1;
+}
+
+.cv-textarea {
+  resize: vertical;
+}
+
+.full-width {
+  grid-column: span 2;
+  margin-top: 15px;
+}
+
+.cv-buttons{
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.cv-btn {
+  width: 100%;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+  font-size: 0.75rem;
+}
+
+.cv-btn:hover {
+  background: #ff840080;
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0px #000;
+}
+
+.cv-section {
+  border-left: 4px solid #ff840080; 
+  padding-left: 20px;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+.cv-section:hover {
+  border-left-color: #000;
+}
+
+.section-label {
+  background: #000;
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.cv-field::placeholder {
+  color: #ccc;
+  font-style: italic;
+  font-size: 12px;
+}
+
+
+.cv-field:focus {
+    background-color: #fff;
+    border-color: #ff8400;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.cv-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-label {
+    transform: rotate(-1deg);
+    box-shadow: 4px 4px 0px #ff840080;
+}
