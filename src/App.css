@@ -10,9 +10,9 @@ body {
   
   background-color: #fffcfa;
     background-image: 
-        radial-gradient(at 80% 20%, rgba(255, 171, 14, 0.5) 0px, transparent 50%), 
-        radial-gradient(at 20% 50%, rgba(255, 68, 0, 0.2) 0px, transparent 50%),
-        radial-gradient(at 50% 80%, rgba(255, 132, 0, 0.3) 0px, transparent 50%);
+        radial-gradient(at 80% 20%, rgba(255, 171, 14, 0.7) 0px, transparent 50%), 
+        radial-gradient(at 20% 50%, rgba(255, 68, 0, 0.4) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(255, 132, 0, 0.4) 0px, transparent 50%);
 
   background-attachment: fixed;
   background-repeat: no-repeat;

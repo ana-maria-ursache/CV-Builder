@@ -5,9 +5,10 @@
     "login":"Conectare",
     "logout":"Deconectare",
     "landing-page-title":"Bine ai venit!",
-    "landing-page-description":"Keystroke este un generator de CV minimalist, conceput pentru profesioniștii care apreciază precizia digitală. Creați, personalizați și descărcați instantaneu CV-ul dvs. într-un format estetic de mare impact. Prin crearea unui cont, puteți gestiona mai multe profiluri profesionale, ceea ce vă permite să vă adaptați identitatea pentru fiecare oportunitate cu rapiditate și rafinament.",
+    "landing-page-mission":"Creați, personalizați și descărcați instantaneu CV-ul dvs. într-un format estetic de mare impact.",
+    "landing-page-description":"Keystroke este un generator de CV minimalist, conceput pentru profesioniștii care apreciază precizia digitală. Prin crearea unui cont, puteți gestiona mai multe profiluri profesionale, ceea ce vă permite să vă adaptați identitatea pentru fiecare oportunitate cu rapiditate și rafinament.",
     "landing-page-btn":"Construiește-ți prorpiul CV",
-    "contact-us":"Contactează-ne:",
+    "contact-us":"Formular de feedback:",
     "your-email":"SCRIE EMAIL-UL TĂU...",
     "message":"Mesaj",
     "your-message":"SCRIE MESAJUL DORIT...",
@@ -57,7 +58,7 @@
     "interests":"Interese",
     "loading":"Se încarcă...",
     "my-cvs":"CV-urile mele",
-    "dashboard":"Tablou de bord",
+    "dashboard":"Panou de control",
     "auth-email-password-required":"Completează email-ul și parola!",
     "auth-all-fields-required":"Completează toate câmpurile!",
     "auth-passwords-mismatch":"Parolele nu se potrivesc!",
@@ -88,5 +89,7 @@
     "search-cv":"Caută după numele CV-ului...",
     "newest":"Cele mai noi",
     "oldest":"Cele mai vechi",
-    "no-results":"Niciun CV găsit"
+    "no-results":"Niciun CV găsit",
+    "contact-us-text":"Spune-ne ce putem îmbunătăți!",
+    "contact-description":"Dacă ai întrebări, sugestii sau vrei să ne împărtășești feedback, nu ezita să ne contactezi! Echipa noastră este aici să te asculte și să te ajute."
 }   

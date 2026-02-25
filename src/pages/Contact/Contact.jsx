@@ -6,6 +6,7 @@ import '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
 import env from '../../../config';
 import { sendEmail } from '../../utils/sendEmail';
+// TODO: finish the design
 
 export default function Contact() {
   const { t } = useTranslation();
@@ -62,67 +63,73 @@ export default function Contact() {
   });
 
   return (
-    <div className="contact-container">
-      <h1 className="contact-title">{t('contact-us')}</h1>
-      <form className="contact-form" onSubmit={formik.handleSubmit}>
-        <div className="input-group">
-          <label htmlFor="name">{t('username')}</label>
-          <input
-            required
-            id="name"
-            name="name"
-            type="text"
-            placeholder={t('your-name')}
-            onChange={formik.handleChange}
-            value={formik.values.name}
-            className="contact-input"
-          />
-        </div>
+    <div className="contract">
+      <div className="contact-text">
+        <h1 id="contact-us-text">{t('contact-us-text')}</h1>
+        <p id="contact-description">{t('contact-description')}</p>
+      </div>
+      <div className="contact-container">
+        <h1 className="contact-title">{t('contact-us')}</h1>
+        <form className="contact-form" onSubmit={formik.handleSubmit}>
+          <div className="input-group">
+            <label htmlFor="name">{t('username')}</label>
+            <input
+              required
+              id="name"
+              name="name"
+              type="text"
+              placeholder={t('your-name')}
+              onChange={formik.handleChange}
+              value={formik.values.name}
+              className="contact-input"
+            />
+          </div>
 
-        <div className="input-group">
-          <label htmlFor="email">{t('email')}</label>
-          <input
-            required
-            id="email"
-            name="email"
-            type="email"
-            placeholder={t('your-email')}
-            onChange={formik.handleChange}
-            value={formik.values.email}
-            className="contact-input"
-          />
-        </div>
+          <div className="input-group">
+            <label htmlFor="email">{t('email')}</label>
+            <input
+              required
+              id="email"
+              name="email"
+              type="email"
+              placeholder={t('your-email')}
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              className="contact-input"
+            />
+          </div>
 
-        <div className="input-group">
-          <label htmlFor="subject">{t('subject')}</label>
-          <input
-            required
-            id="subject"
-            name="subject"
-            type="text"
-            placeholder={t('your-subject')}
-            onChange={formik.handleChange}
-            value={formik.values.subject}
-            className="contact-input"
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="text">{t('message')}</label>
-          <textarea
-            required
-            id="text"
-            name="text"
-            placeholder={t('your-message')}
-            onChange={formik.handleChange}
-            value={formik.values.text}
-            className="contact-input contact-textarea"
-          />
-        </div>
+          <div className="input-group">
+            <label htmlFor="subject">{t('subject')}</label>
+            <input
+              required
+              id="subject"
+              name="subject"
+              type="text"
+              placeholder={t('your-subject')}
+              onChange={formik.handleChange}
+              value={formik.values.subject}
+              className="contact-input"
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="text">{t('message')}</label>
+            <textarea
+              required
+              id="text"
+              name="text"
+              placeholder={t('your-message')}
+              onChange={formik.handleChange}
+              value={formik.values.text}
+              className="contact-input contact-textarea"
+            />
+          </div>
 
-        <button className="custom-btn" type="submit">
-          {t('submit-btn')}
-        </button>
-      </form>
+          <button className="custom-btn" type="submit">
+            {t('submit-btn')}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

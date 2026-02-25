@@ -5,9 +5,10 @@
     "login":"Login",
     "logout":"Logout",
     "landing-page-title":"Welcome to Keystroke!",
-    "landing-page-description":"Keystroke is a minimalist CV-builder engineered for professionals who value digital precision. Create, customize, and instantly download your CV in a high-impact aesthetic. By creating an account, you can manage multiple professional profiles, allowing you to tailor your identity for every opportunity with speed and sophistication.",
+    "landing-page-mission":"Create, customize, and instantly download your CV in a high-impact aesthetic.",
+    "landing-page-description":"Keystroke is a minimalist CV-builder engineered for professionals who value digital precision. By creating an account, you can manage multiple professional profiles, allowing you to tailor your identity for every opportunity with speed and sophistication.",
     "landing-page-btn":"Build your own CV",
-    "contact-us":"Contact us:",
+    "contact-us":"Feedback form:",
     "your-email":"TYPE YOUR EMAIL...",
     "message":"Message",
     "your-message":"TYPE YOUR MESSAGE ...",
@@ -88,5 +89,7 @@
     "search-cv":"Search by CV name...",
     "newest":"Newest",
     "oldest":"Oldest",
-    "no-results":"No CVs found"
+    "no-results":"No CVs found",
+    "contact-us-text":"Tell us what we can improve!",
+    "contact-description":"If you have any questions, suggestions or want to share feedback, please don't hesitate to contact us! Our team is here to listen and help you."        
 }
