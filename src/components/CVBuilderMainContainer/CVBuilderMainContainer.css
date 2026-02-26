@@ -1,8 +1,9 @@
 .cv-page-wrapper {
   display: flex;
   justify-content: center;
-  padding: 50px 20px;
+  padding: 30px 0;
   min-height: 100vh;
+  width: 100%;
 }
 
 .cv-document {
@@ -12,6 +13,8 @@
   border: 3px solid #000; 
   padding: 40px;
   box-shadow: 10px 10px 0px #000;
+  box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .cv-header {
@@ -21,9 +24,13 @@
 .cv-title {
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
+
 
 .header-line {
   height: 6px;
@@ -52,6 +59,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+
 
 .cv-input-group {
   display: flex;
@@ -89,9 +97,12 @@
 
 .cv-buttons{
   display: flex;
+  
   gap: 20px;
   margin-top: 30px;
+  flex-wrap: nowrap;
 }
+
 
 .cv-btn {
   width: 100%;
@@ -108,6 +119,26 @@
 }
 
 .cv-btn:hover {
+  background: #ff840080;
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0px #000;
+}
+
+.cv-btn-pdf {
+  width: 100%;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+  font-size: 0.75rem;
+}
+
+.cv-btn-pdf:hover {
   background: #ff840080;
   transform: translate(-3px, -3px);
   box-shadow: 5px 5px 0px #000;
@@ -147,13 +178,74 @@
     box-shadow: 4px 4px 0px #000;
 }
 
-.cv-title {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
 .section-label {
     transform: rotate(-1deg);
     box-shadow: 4px 4px 0px #ff840080;
+}
+
+.cv-btn-browser {
+  display: none;
+  width: 100%;
+  padding: 15px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+  font-size: 0.75rem;
+}
+
+.cv-btn-browser:hover {
+  background: #ff840080;
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0px #000;
+}
+
+@media (max-width: 600px) {
+  .cv-title {
+    font-size: 1.5rem;
+  }
+
+  .cv-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+
+  .cv-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cv-btn-pdf {
+    display: none;
+  }
+
+  .cv-document {
+    padding: 20px;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 0px #000;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cv-btn-browser {
+  display: block;
+}
+
+  .cv-btn-pdf{
+    display: none;
+  }
+
+  .cv-document {
+    padding: 30px;
+    border: 2px solid #000;
+    box-shadow: 7px 7px 0px #000;
+  }
 }

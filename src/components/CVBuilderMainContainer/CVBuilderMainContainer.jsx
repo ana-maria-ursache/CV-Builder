@@ -10,7 +10,7 @@ import PairWithTextAreaSection from './PairWithTextAreaSection';
 
 import { useTranslation } from 'react-i18next';
 
-function CVBuilderMainContainer({ onUpdate, cvData, initialValues }) {
+function CVBuilderMainContainer({ onUpdate, cvData, initialValues, onPreviewPDF, cvId }) {
   const { t } = useTranslation();
 
   return (
@@ -78,7 +78,11 @@ function CVBuilderMainContainer({ onUpdate, cvData, initialValues }) {
               onChange={onUpdate}
             />
             <InputPair
-              field1={{ label: t('date'), name: 'experience.0.date', placeholder: 'ex: 2020 - 2021' }}
+              field1={{
+                label: t('date'),
+                name: 'experience.0.date',
+                placeholder: 'ex: 2020 - 2021',
+              }}
               field2={{
                 label: t('location'),
                 name: 'experience.0.location',
@@ -115,7 +119,11 @@ function CVBuilderMainContainer({ onUpdate, cvData, initialValues }) {
                 name: 'education.0.location',
                 placeholder: t('location-placeholder'),
               }}
-              field2={{ label: t('date'), name: 'education.0.date', placeholder: 'ex: 2020 - 2021' }}
+              field2={{
+                label: t('date'),
+                name: 'education.0.date',
+                placeholder: 'ex: 2020 - 2021',
+              }}
               onChange={onUpdate}
             />
             <TextAreaField
@@ -184,7 +192,11 @@ function CVBuilderMainContainer({ onUpdate, cvData, initialValues }) {
               name: 'volunteering.0.role',
               placeholder: 'ex: ASII - Project Management',
             }}
-            field2={{ label: t('date'), name: 'volunteering.0.date', placeholder: 'ex: 2020 - 2021' }}
+            field2={{
+              label: t('date'),
+              name: 'volunteering.0.date',
+              placeholder: 'ex: 2020 - 2021',
+            }}
             textAreaLabel={t('description')}
             textAreaName="volunteering.0.description"
             textAreaPlaceholder={t('description-placeholder')}
@@ -207,7 +219,12 @@ function CVBuilderMainContainer({ onUpdate, cvData, initialValues }) {
             onChange={onUpdate}
           />
 
-          <CVBuilderBtns cvData={cvData} initialValues={initialValues} />
+          <CVBuilderBtns
+            cvData={cvData}
+            initialValues={initialValues}
+            onPreviewPDF={onPreviewPDF}
+            cvId={cvId}
+          />
         </form>
       </div>
     </div>

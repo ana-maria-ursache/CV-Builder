@@ -94,7 +94,7 @@ export default function Auth() {
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h1>{formMode === 'login' ? t('connect') : t('signup')}</h1>
+        <h1 className="auth-title">{formMode === 'login' ? t('connect') : t('signup')}</h1>
 
         {formMode === 'login' ? (
           // Login Form

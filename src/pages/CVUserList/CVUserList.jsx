@@ -130,7 +130,7 @@ export default function CVUserList() {
           {filteredAndSortedCvs.map((cv) => (
             <div key={cv.id} className="cv-card">
               <div className="cv-card-info">
-                <h3>{cv.cv_title || 'Untitled CV'}</h3>
+                <div className="cv-version-title">{cv.cv_title || 'Untitled CV'}</div>
                 <p>
                   {t('saved-at')} {new Date(cv.created_at).toLocaleString('ro-RO')}
                 </p>
