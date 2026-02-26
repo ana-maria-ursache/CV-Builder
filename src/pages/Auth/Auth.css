@@ -1,3 +1,5 @@
+@import '../../variables.css';
+
 .auth-container {
   display: flex;
   justify-content: center;
@@ -7,12 +9,13 @@
 }
 
 .auth-box {
-  background: white;
-  border: 3px solid #000; 
+  background: var(--background);
+  border: 3px solid var(--dark); 
   padding: 40px;
   width: 100%;
   max-width: 450px;
-  box-shadow: 10px 10px 0px #000; 
+  box-shadow: 10px 10px 0px var(--dark); 
+
 }
 
 .auth-title {
@@ -21,8 +24,8 @@
   font-size: 1.6rem;
   margin-bottom: 30px;
   text-align: left;
-  color: #000;
-  border-bottom: 6px solid #000;
+  color: var(--dark); 
+  border-bottom: 6px solid var(--dark); 
   display: inline-block;
   padding-bottom: 5px;
 }
@@ -44,11 +47,11 @@
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
-  color: #000;
+  color: var(--dark); 
 }
 
 .form-group input {
-  border: 2px solid #000;
+  border: 2px solid var(--dark); 
   padding: 12px;
   font-family: inherit;
   font-weight: 600;
@@ -58,15 +61,15 @@
 }
 
 .form-group input:focus {
-  background-color: #fff8e1; 
-  box-shadow: 4px 4px 0px #000;
+  background-color: var(--dark); 
+  box-shadow: 4px 4px 0px var(--dark); 
 }
 
 .auth-btn {
   width: 100%;
   padding: 15px;
-  background: #000;
-  color: #fff;
+  background: var(--dark); 
+  color: var(--background); 
   border: none;
   font-weight: 900;
   text-transform: uppercase;
@@ -77,30 +80,30 @@
 }
 
 .auth-btn:hover:not(:disabled) {
-  background: #ff840080; 
+  background: var(--medium-orange);
   transform: translate(-3px, -3px);
-  box-shadow: 5px 5px 0px #000;
-  color: #000;
+  box-shadow: 5px 5px 0px var(--dark); 
+  color: var(--dark); 
 }
 
 .auth-btn:disabled {
-  background: #ccc;
-  border: 2px solid #000;
+  background: var(--background); 
+  border: 2px solid var(--dark); 
   cursor: not-allowed;
-  color: #666;
+  color: var(--placeholder);
 }
 
 .auth-toggle {
   margin-top: 30px;
   text-align: left;
-  border-top: 2px solid #000;
+  border-top: 2px solid var(--dark); 
   padding-top: 20px;
 }
 
 .auth-toggle p {
   font-size: 13px;
   font-weight: 600;
-  color: #000;
+  color: var(--dark); 
   margin: 0;
   text-transform: uppercase;
 }
@@ -108,7 +111,7 @@
 .toggle-btn {
   background: none;
   border: none;
-  color: #f88408;
+  color: var(--orange); 
   font-weight: 900;
   cursor: pointer;
   padding: 0;
@@ -119,5 +122,5 @@
 }
 
 .toggle-btn:hover {
-  color: #000;
+  color: var(--dark); 
 }
