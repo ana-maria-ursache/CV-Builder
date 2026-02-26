@@ -6,7 +6,6 @@ import '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
 import env from '../../../config';
 import { sendEmail } from '../../utils/sendEmail';
-// TODO: finish the design
 
 export default function Contact() {
   const { t } = useTranslation();
