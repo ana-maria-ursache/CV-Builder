@@ -91,5 +91,6 @@
     "oldest":"Oldest",
     "no-results":"No CVs found",
     "contact-us-text":"Tell us what we can improve!",
-    "contact-description":"If you have any questions, suggestions or want to share feedback, please don't hesitate to contact us! Our team is here to listen and help you."        
+    "contact-description":"If you have any questions, suggestions or want to share feedback, please don't hesitate to contact us! Our team is here to listen and help you.",
+    "open-in-preview":"Open in Browser"   
 }
