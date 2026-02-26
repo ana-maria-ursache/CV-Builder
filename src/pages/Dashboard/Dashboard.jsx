@@ -51,7 +51,7 @@ export default function Dashboard() {
 
   if (!isAdmin)
     return (
-      <div className="dash-container">
+      <div className="dash-container-err">
         <h1>{t('access-denied')}</h1>
       </div>
     );
