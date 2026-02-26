@@ -92,5 +92,13 @@
     "no-results":"Niciun CV găsit",
     "contact-us-text":"Spune-ne ce putem îmbunătăți!",
     "contact-description":"Dacă ai întrebări, sugestii sau vrei să ne împărtășești feedback, nu ezita să ne contactezi! Echipa noastră este aici să te asculte și să te ajute.",
-    "open-in-preview":"Deschide în Browser"
+    "open-in-preview":"Deschide în Browser",
+    "error-fetching-users":"Eroare la încărcarea utilizatorilor.",
+    "role-updated":"Rol actualizat cu succes!",
+    "update-failed":"Eroare la actualizarea rolului. Te rugăm să încerci din nou.",
+    "access-denied":"Acces interzis. Doar administratorii pot accesa această pagină.",
+    "last-update":"Ultima actualizare",
+    "actions":"Acțiuni",
+    "demote":"Demotează",
+    "make-admin":"Fă admin"
 }   

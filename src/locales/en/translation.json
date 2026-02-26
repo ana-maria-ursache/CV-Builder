@@ -92,5 +92,13 @@
     "no-results":"No CVs found",
     "contact-us-text":"Tell us what we can improve!",
     "contact-description":"If you have any questions, suggestions or want to share feedback, please don't hesitate to contact us! Our team is here to listen and help you.",
-    "open-in-preview":"Open in Browser"   
+    "open-in-preview":"Open in Browser",
+    "error-fetching-users":"Error fetching users.",
+    "role-updated":"Role updated successfully!",
+    "update-failed":"Error updating role. Please try again.",
+    "access-denied":"Access denied. Only administrators can access this page.",
+    "last-update":"Last update",
+    "actions":"Actions",
+    "demote":"Demote",
+    "make-admin":"Make Admin"
 }
