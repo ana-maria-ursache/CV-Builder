@@ -1,0 +1,193 @@
+.dash-access-denied {
+  font-size: 1rem;
+  padding: 60px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff;
+  border: 4px solid #000;
+  box-shadow: 10px 10px 0px #000;
+}
+
+.dash-container {
+  font-size: 1rem;
+  padding: 60px 20px;
+  min-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff;
+  border: 4px solid #000;
+  box-shadow: 10px 10px 0px #000;
+}
+
+.dash-title {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2.3rem;
+  margin: 0;
+}
+
+.table-wrapper {
+  margin-top: 40px;
+  border: 4px solid #000;
+  box-shadow: 15px 15px 0px #000;
+  overflow-x: auto;
+  background: #fff;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+.admin-table td {
+  padding: 20px;
+  border-bottom: 3px solid #000;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.role-badge {
+  padding: 5px 12px;
+  border: 2px solid #000;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.role-badge.admin {
+  background: #ff8400;
+  color: #000;
+}
+
+.dash-btn {
+  padding: 8px 15px;
+  border: 2px solid #000;
+  font-family: inherit;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 10px;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.dash-btn.promote {
+  font-size: 0.8rem;
+}
+
+.dash-btn.promote:hover {
+  background: #fff8e1;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #000;
+}
+
+.error-box {
+  border: 4px solid #000;
+  padding: 20px;
+  background: #ff4444;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 10px 10px 0px #000;
+}
+
+@media (max-width: 750px) {
+  .dash-access-denied {
+    padding: 40px 10px;
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .dash-container {
+    padding: 40px 10px;
+    max-width: 100%;
+    min-width: auto;
+    font-size: 0.9rem;
+  }
+
+  .dash-title {
+    font-size: 1.8rem;
+  }
+
+  .table-wrapper {
+    margin-top: 20px;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .admin-table {
+    display: block;
+  }
+
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .admin-table tr {
+    display: block;
+    border: 3px solid #000;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 5px 5px 0px #000;
+  }
+
+  .admin-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border: none;
+    border-bottom: none;
+  }
+
+  .admin-table td:before {
+    content: attr(data-label);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-right: 10px;
+    min-width: 100px;
+    font-size: 0.75rem;
+    color: #000;
+  }
+
+  .admin-table td:last-child {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 10px;
+    border-top: 2px solid #f0f0f0;
+  }
+
+  .role-badge {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+
+  .dash-btn {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .dash-btn.promote {
+    font-size: 0.7rem;
+  }
+}
