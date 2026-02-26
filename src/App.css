@@ -1,3 +1,5 @@
+@import './variables.css';
+
 *{    
     font-family: 'Courier Prime', monospace;
 }
@@ -5,14 +7,12 @@
 body {    
   width: 100%;
   min-height: 100vh; 
-  margin: 0;
-  background-color: #fffcfa;
-  
-  background-color: #fffcfa;
+  margin: 0;  
+  background-color: var(--background-color);
     background-image: 
-        radial-gradient(at 80% 20%, rgba(255, 171, 14, 0.7) 0px, transparent 50%), 
-        radial-gradient(at 20% 50%, rgba(255, 68, 0, 0.4) 0px, transparent 50%),
-        radial-gradient(at 50% 80%, rgba(255, 132, 0, 0.4) 0px, transparent 50%);
+        radial-gradient(at 80% 20%, var(--light-orange) 0px, transparent 50%), 
+        radial-gradient(at 20% 50%, var(--dark-brown) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, var(--medium-orange) 0px, transparent 50%);
 
   background-attachment: fixed;
   background-repeat: no-repeat;

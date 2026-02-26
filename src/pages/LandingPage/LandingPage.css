@@ -1,3 +1,5 @@
+@import '../../variables.css';
+
 .landing-page-container {
     display: flex;
     flex-direction: column;
@@ -5,15 +7,16 @@
     justify-content: center; 
     text-align: center;    
     gap: 40px;
-    background-color: #fff;
-    border: 2px solid #000;
+    background: var(--container-light-color);
+    border: 3px solid var(--container-border-color);
     padding: 100px 20px;
     max-width: 700px;
-    box-shadow: 10px 10px 0px #000;
+    box-shadow: 10px 10px 0px var(--container-border-color);
 }
 
 .title{
     font-size: 3rem;
+    color: var(--container-header-line-color);
 } 
 
 .mission{
@@ -21,26 +24,15 @@
     letter-spacing: 1px;
     width: 80%;
     font-weight: bold;
+    color: var(--container-header-line-color);;
 }
 
 .description{
     font-size: 1rem;
     letter-spacing: 1px;
     width: 80%;
+    color: var(--container-header-line-color);
 }
-
-.custom-btn {
-  background-color: transparent;
-  border: none;
-  padding: 15px 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-transform: uppercase;
-  color: #1a1a1a;
-  border:3px solid #1a1a1a;
-}
-
 
 @media (max-width: 1024px) {
     .description {
@@ -63,11 +55,5 @@
     }
     .description {
         display:none;
-    }
-
-    .custom-btn {
-        max-width: 150px; 
-        padding: 12px 20px;
-        font-size: 0.7rem;
     }
 }

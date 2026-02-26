@@ -1,3 +1,5 @@
+@import '../../variables.css';
+
 .list-container {
   padding: 60px 20px;
   max-width: 1000px;
@@ -10,13 +12,13 @@
   font-weight: 900;
   font-size: 2rem;
   margin: 0;
-  color: #000;
+  color: var(--dark);
   letter-spacing: -1px;
 }
 
 .header-line {
-  height: 8px;
-  background: #000;
+  height: 4px;
+  background: var(--dark);
   width: 100%;
   margin: 15px 0 50px 0;
 }
@@ -25,8 +27,8 @@
   font-weight: 700;
   font-size: 1.2rem;
   text-transform: uppercase;
-  color: #000;
-  border: 2px dashed #000;
+  color: var(--dark);
+  border: 2px dashed var(--dark);
   padding: 40px;
   text-align: center;
 }
@@ -35,7 +37,7 @@
   font-size: 1.2rem;
   font-weight: 900;
   text-transform: uppercase;
-  color: #000;
+  color: var(--container-header-line-color);
 }
 
 .cv-grid-list {
@@ -45,21 +47,21 @@
 }
 
 .cv-card {
-  background: #fff;
-  border: 4px solid #000; 
+  background: var(--background);
+  border: 4px solid var(--container-border-color);
   padding: 20px;
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 10px 10px 0px #000;
+  box-shadow: 8px 8px 0px var(--button-color);
   transition: all 0.2s ease;
   position: relative;
 }
 
 .cv-card:hover {
-  transform: translate(-5px, -5px);
-  box-shadow: 15px 15px 0px #ff840080;
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px var(--orange);
 }
 
 .cv-card-info h3 {
@@ -67,15 +69,14 @@
   font-size: 1.4rem;
   font-weight: 900;
   text-transform: uppercase;
-  color: #000;
   line-height: 1.1;
 }
 
 .cv-card-info p {
-  margin: 0;
+  margin-top: 10px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #555;
+  color: var(--orange);
   text-transform: uppercase;
 }
 
@@ -88,36 +89,33 @@
 .action-btn {
   flex: 1;
   padding: 12px 5px;
-  border: 3px solid #000;
-  font-family: inherit;
+  border: 2px solid var(--button-color);
+  box-shadow: 4px 4px 0px var(--button-color);
   font-weight: 900;
   text-transform: uppercase;
   font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.15s ease;
-  background: #fff;
+  background: var(--button-color);
+  color: var(--background);
 }
 
-.action-btn.view {
-  background: #fff;
-  color: #000;
-}
 
 .action-btn.view:hover {
-  background: #ff840080; 
-  color: #fff;
+  background: var(--orange);
+  transform: translate(-3px, -3px);
 }
 
 .action-btn.delete {
-  background: #fff;
-  color: #000;
-  border-color: #000;
+  border: 2px solid var(--button-color);
+  box-shadow: 4px 4px 0px var(--button-color);
+  background: var(--button-color);
+  color: var(--background);
 }
 
 .action-btn.delete:hover {
-  background: #ff8400b5; 
-  color: #fff;
-  box-shadow: 2px 2px 0px #000;
+  background: var(--orange);
+  transform: translate(-3px, -3px);
 }
 
 .search-sort-section {
@@ -132,16 +130,15 @@
   flex: 1;
   min-width: 250px;
   padding: 12px 15px;
-  border: 3px solid #000;
+  border: 3px solid var(--container-border-color);
   font-size: 1rem;
   font-weight: 600;
-  font-family: inherit;
   outline: none;
   transition: all 0.2s ease;
 }
 
 .search-input:focus {
-  box-shadow: 5px 5px 0px #ff840080;
+  border-color: var(--orange);
 }
 
 .sort-buttons {
@@ -154,26 +151,20 @@
   align-items: center;
   gap: 6px;
   padding: 10px 15px;
-  border: 3px solid #000;
-  background: #fff;
-  color: #000;
+  background: var(--button-color);
+  color: var(--background);
   font-weight: 900;
   font-size: 0.9rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.15s ease;
-  font-family: inherit;
+  border: 2px solid var(--button-color);
+  box-shadow: 4px 4px 0px var(--button-color);
 }
 
-.sort-btn:hover {
-  background: #ff840080;
-  color: #fff;
-}
-
-.sort-btn.active {
-  background: #ff8400;
-  color: #fff;
-  box-shadow: 5px 5px 0px #000;
+.sort-btn:hover,.sort-btn.active, .reset-btn:hover  {
+  background: var(--orange);
+  transform: translate(-3px, -3px);
 }
 
 .reset-btn{
@@ -181,25 +172,16 @@
   align-items: center;
   gap: 6px;
   padding: 10px 15px;
-  border: 3px solid #000;
-  background: #fff;
-  color: #000;
+  background: var(--button-color);
+  color: var(--background);
+  border: 2px solid var(--button-color);
+  box-shadow: 4px 4px 0px var(--button-color);
   font-weight: 900;
   font-size: 0.9rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.15s ease;
-  font-family: inherit;
 }
-
-
-.reset-btn:hover {
-  background: #ff840080;
-  color: #fff;
-    box-shadow: 5px 5px 0px #000;
-
-}
-
 
 @media (max-width: 600px) {
   .list-title {

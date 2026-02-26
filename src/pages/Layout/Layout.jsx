@@ -17,7 +17,7 @@ export default function Layout() {
       <footer>
         <p className="footer-text">&copy; 2026 KeyStroke. {t('footer')}</p>
       </footer>
-      <Toaster richColors position="top-right" />
+      <Toaster richColors position="bottom-right" />
     </div>
   );
 }
