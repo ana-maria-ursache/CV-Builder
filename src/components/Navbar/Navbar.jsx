@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import supabase from '../../utils/supabaseClient';
@@ -13,6 +13,7 @@ export default function Navbar() {
 
   const { i18n, t } = useTranslation();
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { isLoggedIn, isAdmin } = useSelector((state) => state.user);
@@ -36,6 +37,7 @@ export default function Navbar() {
     } else {
       dispatch(clearUser());
       setIsOpen(false);
+      navigate('/');
     }
   };
 
@@ -83,20 +85,21 @@ export default function Navbar() {
         )}
 
         <div className="change-lng">
-          <button
-            className={`lng-btn ${i18n.language === 'en' ? 'active' : ''}`}
-            onClick={() => i18n.changeLanguage('en')}
-          >
-            EN
-          </button>
-          <span className="separator">/</span>
-          <button
-            className={`lng-btn ${i18n.language === 'ro' ? 'active' : ''}`}
-            onClick={() => i18n.changeLanguage('ro')}
-          >
-            RO
-          </button>
-
+          <div>
+            <button
+              className={`lng-btn ${i18n.language === 'en' ? 'active' : ''}`}
+              onClick={() => i18n.changeLanguage('en')}
+            >
+              EN
+            </button>
+            <span className="separator"> / </span>
+            <button
+              className={`lng-btn ${i18n.language === 'ro' ? 'active' : ''}`}
+              onClick={() => i18n.changeLanguage('ro')}
+            >
+              RO
+            </button>
+          </div>
           <input type="checkbox" onChange={handleThemeToggle} class="theme-checkbox" />
         </div>
       </div>

@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1rem;
+  color: var(--dark);
 }
 
 .contact-text p{
@@ -28,18 +29,18 @@
   justify-content: center;
   padding: 40px 60px;
   background-color: var(--background);
-  border: 2px solid var(--dark);
-  box-shadow: 10px 10px 0px var(--dark);
+  border: 2px solid var(--container-border-color);
+  box-shadow: 10px 10px 0px var(--container-border-color);
   width: 30%;
 }
 
 .contact-title {
-  font-family: inherit;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-size: 2rem;
   margin-bottom: 30px;
-  color: var(--dark);
+  color: var(--container-header-line-color);
+
 }
 
 .contact-form {
@@ -66,8 +67,8 @@
 
 .contact-input {
   padding: 15px;
-  background-color: var(--background);
-  border: 2px solid var(--dark);
+  background-color: var(--section-label-text-color);
+  border: 2px solid var(--input-field-border-color);
   border-radius: 0; 
   font-weight: 600;
   font-size: 14px;
@@ -82,8 +83,9 @@
 }
 
 .contact-input:focus {
+  background-color: var(--background);
+  border-color: var(--orange);
   box-shadow: 4px 4px 0px var(--dark);
-  transform: translate(-2px, -2px);
 }
 
 .contact-textarea {
@@ -94,22 +96,20 @@
 .custom-btn {
   margin-top: 10px;
   padding: 15px;
-  background-color: var(--dark);
+  background: var(--button-color);
   color: var(--background);
-  border: 2px solid var(--dark);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2px;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 4px 4px 0px var(--dark);
+  border: 2px solid var(--button-color);
+  box-shadow: 4px 4px 0px var(--button-color);
 }
 
 .custom-btn:hover {
-  background-color: var(--medium-orange); 
-  color: var(--dark);
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--dark);
+  background: var(--orange);
+  transform: translate(-3px, -3px);
 }
 
 .custom-btn:active {

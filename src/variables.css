@@ -1,21 +1,52 @@
 :root.light-theme {
+    --container-light-color: #fffcfa;
+    --container-border-color: #121110;
+    --container-header-line-color: #121110;
+
+    --section-label-color:#121110;
+    --section-label-text-color: #fffcfa;
+    --input-field-border-color: #121110;
+    --placeholder: #ccc;
+
+    --button-color:#121110;
+
+    --nav-titles: #121110;
+    --nav-theme-switch: #fffcfa;
+
+
     --orange: #ff7513e7;
     --light-orange: #ff820eb5;
     --dark-brown: #e544096f;
     --medium-orange: #ff840090;
     --background: #fffcfa;
+    --background-color: #fffcfa;
     --dark: #121110;
+    --text: #121110;
     --red-error: #ff4444;
-    --placeholder: #ccc;
 }
 
 :root.dark-theme {
+    --container-light-color: #fffcfa;
+    --container-border-color: #121110;
+    --container-header-line-color: #121110;
+
+    --section-label-color:#121110;
+    --section-label-text-color: #fffcfa;
+    --input-field-border-color: #121110;
+    --placeholder: #ccc;
+
+    --button-color:#121110;
+
+    --nav-titles: #fffcfa;
+    --nav-theme-switch: #121110;
+
     --orange: #ff7513e7;
-    --light-orange: #ff820eb5;
+    --light-orange: #ff820e70;
     --dark-brown: #e544096f;
     --medium-orange: #ff840090;
-    --background: #121110;
+    --background: #fffcfa;
+    --background-color: #121110;
     --dark: #fffcfa;
+    --text: #fffcfa;
     --red-error: #ff4444;
-    --placeholder: #ccc;
 }

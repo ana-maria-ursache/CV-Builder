@@ -81,6 +81,11 @@ export default function CVUserList() {
     window.location.href = url;
   };
 
+  const resetFilters = () => {
+    setSearchQuery('');
+    setSortAscending(false);
+  };
+
   if (loading) return <div className="list-container">{t('loading')}</div>;
 
   return (
@@ -115,7 +120,7 @@ export default function CVUserList() {
             {t('oldest') || 'Oldest'}
           </button>
 
-          <button className="reset-btn" onClick={() => setSortAscending(true)}>
+          <button className="reset-btn" onClick={resetFilters}>
             {t('reset-btn')}
           </button>
         </div>

@@ -7,12 +7,10 @@
 body {    
   width: 100%;
   min-height: 100vh; 
-  margin: 0;
-  background-color: var(--background);
-  
-  background-color: var(--background);
+  margin: 0;  
+  background-color: var(--background-color);
     background-image: 
-        radial-gradient(at 80% 20%, var(--orange) 0px, transparent 50%), 
+        radial-gradient(at 80% 20%, var(--light-orange) 0px, transparent 50%), 
         radial-gradient(at 20% 50%, var(--dark-brown) 0px, transparent 50%),
         radial-gradient(at 50% 80%, var(--medium-orange) 0px, transparent 50%);
 

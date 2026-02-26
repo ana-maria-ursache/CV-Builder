@@ -9,13 +9,12 @@
 }
 
 .cv-document {
-  background: var(--background);
+  background: var(--container-light-color);
   width: 100%;
   max-width: 800px;
-  border: 3px solid var(--dark);
+  border: 3px solid var(--container-border-color);
   padding: 40px;
-  box-shadow: 10px 10px 0px var(--dark);
-  box-sizing: border-box;
+  box-shadow: 10px 10px 0px var(--container-border-color);
   box-sizing: border-box;
 }
 
@@ -36,7 +35,7 @@
 
 .header-line {
   height: 6px;
-  background: var(--dark);
+  background: var(--container-header-line-color);
   width: 100px;
   margin-top: 10px;
 }
@@ -46,15 +45,19 @@
 }
 
 .section-label {
-  background: var(--dark);
-  color: var(--background);
-  display: inline-block;
-  padding: 5px 15px;
-  font-size: 14px;
+  background: var(--section-label-color);
+  color: var(--section-label-text-color);
   text-transform: uppercase;
-  margin-bottom: 20px;
   font-weight: 700;
+  padding: 8px 20px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-bottom: 25px;
+  transform: rotate(-1deg);
+  box-shadow: 4px 4px 0px var(--medium-orange);
 }
+
 
 .cv-grid {
   display: grid;
@@ -76,16 +79,24 @@
 }
 
 .cv-field {
-  border: 2px solid var(--dark);
+  border: 2px solid var(--input-field-border-color);
   padding: 10px;
-  font-family: inherit;
   font-weight: 600;
   outline: none;
   transition: 0.2s;
 }
 
+.cv-field::placeholder {
+  color: var(--placeholder);
+  font-style: italic;
+  font-size: 12px;
+}
+
+
 .cv-field:focus {
-  background-color: var(--orange);
+    background-color: var(--background);
+    border-color: var(--orange);
+    box-shadow: 4px 4px 0px var(--dark);
 }
 
 .cv-textarea {
@@ -108,28 +119,28 @@
 .cv-btn {
   width: 100%;
   padding: 15px;
-  background: var(--dark);
+  background: var(--button-color);
   color: var(--background);
-  border: none;
   font-weight: 900;
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 20px;
   transition: 0.3s;
   font-size: 0.75rem;
-  border: 2px solid var(--dark);
+  border: 2px solid var(--button-color);
+  box-shadow: 4px 4px 0px var(--button-color);
+
 }
 
 .cv-btn:hover {
-  background: var(--medium-orange);
+  background: var(--orange);
   transform: translate(-3px, -3px);
-  box-shadow: 5px 5px 0px var(--dark);
 }
 
 .cv-btn-pdf {
   width: 100%;
   padding: 15px;
-  background: var(--dark);
+  background: var(--button-color);
   color: var(--background);
   border: none;
   font-weight: 900;
@@ -138,13 +149,13 @@
   margin-top: 20px;
   transition: 0.3s;
   font-size: 0.75rem;
-  border: 2px solid var(--dark);
+  border: 2px solid var(--button-color);
+  box-shadow: 4px 4px 0px var(--button-color);
 }
 
 .cv-btn-pdf:hover {
   background: var(--medium-orange);
   transform: translate(-3px, -3px);
-  box-shadow: 5px 5px 0px var(--dark);
 }
 
 .cv-section {
@@ -158,54 +169,26 @@
   border-left-color: var(--dark);
 }
 
-.section-label {
-  background: var(--dark);
-  color: var(--background);
-  padding: 8px 20px;
-  font-size: 13px;
-  letter-spacing: 2px;
-  display: inline-block;
-  margin-bottom: 25px;
-}
-
-.cv-field::placeholder {
-  color: var(--placeholder);
-  font-style: italic;
-  font-size: 12px;
-}
-
-
-.cv-field:focus {
-    background-color: var(--background);
-    border-color: var(--medium-orange);
-    box-shadow: 4px 4px 0px var(--dark);
-}
-
-.section-label {
-    transform: rotate(-1deg);
-    box-shadow: 4px 4px 0px var(--medium-orange);
-}
 
 .cv-btn-browser {
   display: none;
   width: 100%;
   padding: 15px;
-  background: var(--dark);
+  background: var(--button-color);
+  border: 2px solid var(--button-color);
+  box-shadow: 4px 4px 0px var(--button-color);
   color: var(--background);
-  border: none;
   font-weight: 900;
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 20px;
   transition: 0.3s;
   font-size: 0.75rem;
-  border: 2px solid var(--dark);
 }
 
 .cv-btn-browser:hover {
-  background: var(--medium-orange);
+  background: var(--orange);
   transform: translate(-3px, -3px);
-  box-shadow: 5px 5px 0px var(--dark);
 }
 
 @media (max-width: 600px) {
@@ -233,8 +216,6 @@
 
   .cv-document {
     padding: 20px;
-    border: 2px solid var(--dark);
-    box-shadow: 5px 5px 0px var(--dark);
   }
 }
 
@@ -249,7 +230,5 @@
 
   .cv-document {
     padding: 30px;
-    border: 2px solid var(--dark);
-    box-shadow: 7px 7px 0px var(--dark);
   }
 }
