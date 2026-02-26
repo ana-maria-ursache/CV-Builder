@@ -1,17 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import supabase from '../../utils/supabaseClient';
 import { clearUser } from '../../store/userSlice';
+import { getInitialTheme, applyTheme } from '../../utils/themes';
 import './Navbar.css';
 
 export default function Navbar() {
-  const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(getInitialTheme() === 'dark-theme');
+
+  const { i18n, t } = useTranslation();
+
   const dispatch = useDispatch();
 
   const { isLoggedIn, isAdmin } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    const theme = isDark ? 'dark-theme' : 'light-theme';
+    applyTheme(theme);
+  }, [isDark]);
+
+  const handleThemeToggle = () => {
+    setIsDark(!isDark);
+  };
 
   const toggleMenu = () => setIsOpen(!isOpen);
   console.log('isLoggedIn:', isLoggedIn, 'isAdmin:', isAdmin);
@@ -83,6 +96,8 @@ export default function Navbar() {
           >
             RO
           </button>
+
+          <input type="checkbox" onChange={handleThemeToggle} class="theme-checkbox" />
         </div>
       </div>
     </nav>
