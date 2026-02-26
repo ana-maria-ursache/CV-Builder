@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import supabase from '../../utils/supabaseClient';
 import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { resetCV } from '../../store/cvSlice';
@@ -44,7 +45,8 @@ const getFilteredData = (currentData, initialData) => {
   return filtered;
 };
 
-function CVBuilderBtns({ cvData, initialValues }) {
+function CVBuilderBtns({ cvData, initialValues, onPreviewPDF, cvId }) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -57,16 +59,25 @@ function CVBuilderBtns({ cvData, initialValues }) {
 
   const saveCV = async () => {
     try {
-      const { error } = await supabase.from('cv_versions').insert([
-        {
-          user_id: currentUser.id,
-          cv_content: filteredCvData,
-          cv_title: `${cvData?.personal?.name || 'Untitled'}_${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`,
-          version_name: `Versiune ${new Date().toLocaleDateString()}`,
-        },
-      ]);
+      const { data, error } = await supabase
+        .from('cv_versions')
+        .insert([
+          {
+            user_id: currentUser.id,
+            cv_content: filteredCvData,
+            cv_title: `${cvData?.personal?.name || 'Untitled'}_${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`,
+            version_name: `Versiune ${new Date().toLocaleDateString()}`,
+          },
+        ])
+        .select();
 
       if (error) throw error;
+
+      const savedId = data?.[0]?.id;
+      if (savedId && !cvId) {
+        navigate(`/builder/${savedId}`);
+      }
+
       toast.success('Versiunea CV-ului a fost salvată!');
     } catch (error) {
       toast.error(error.message || t('save-failed'));
@@ -128,7 +139,7 @@ function CVBuilderBtns({ cvData, initialValues }) {
       <PDFDownloadLink
         document={<CVBuilderView data={filteredCvData} />}
         fileName={`CV_${cvData?.personal?.name || 'User'}.pdf`}
-        className="cv-btn"
+        className="cv-btn-pdf"
         style={{ textDecoration: 'none', textAlign: 'center' }}
       >
         {({ loading }) => (loading ? t('loading') : t('download-pdf'))}
@@ -143,6 +154,12 @@ function CVBuilderBtns({ cvData, initialValues }) {
       {isLoggedIn && (
         <button type="button" onClick={sendCVToEmail} className="cv-btn">
           {t('send-to-email-btn')}
+        </button>
+      )}
+
+      {onPreviewPDF && (
+        <button type="button" onClick={onPreviewPDF} className="cv-btn-browser">
+          {t('open-in-preview')}
         </button>
       )}
 

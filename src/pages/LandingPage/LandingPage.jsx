@@ -6,7 +6,7 @@ export default function LandingPage() {
   const { t } = useTranslation();
 
   const navigateToCVBuilder = () => {
-    window.location.href = '/builder/:id';
+    window.location.href = '/builder';
   };
 
   return (

@@ -14,6 +14,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
+          <Route path="builder" element={<CVBuilder />} />
           <Route path="builder/:id" element={<CVBuilder />} />
           <Route path="contact" element={<Contact />} />
           <Route path="auth" element={<Auth />} />
