@@ -43,7 +43,6 @@ export default function CVBuilder() {
           if (error) throw error;
           if (data) {
             dispatch(loadCV(data.cv_content));
-            // Cache it in localStorage
             const allCVs = JSON.parse(localStorage.getItem('allCVs') || '{}');
             allCVs[cvId] = data.cv_content;
             localStorage.setItem('allCVs', JSON.stringify(allCVs));
@@ -59,13 +58,22 @@ export default function CVBuilder() {
     loadCVData();
   }, [cvId, dispatch]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedCvData(cvData);
-    }, 3000);
-
-    return () => clearTimeout(timer);
+  const syncPdfData = useCallback(() => {
+    setDebouncedCvData(cvData);
   }, [cvData]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault(); 
+        syncPdfData(); 
+        console.log('PDF Preview synced!');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [syncPdfData]);
 
   const handleChange = useCallback(
     (e) => {
