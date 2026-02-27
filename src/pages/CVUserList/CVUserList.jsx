@@ -1,6 +1,7 @@
 import './CVUserList.css';
 import { useEffect, useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import supabase from '../../utils/supabaseClient';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +10,7 @@ import ButtonUp from '../../components/ButtonUp/ButtonUp';
 
 export default function CVUserList() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const { currentUser } = useSelector((state) => state.user);
   const [cvs, setCvs] = useState([]);
@@ -77,8 +79,7 @@ export default function CVUserList() {
     allCVs[id] = cvData;
     localStorage.setItem('allCVs', JSON.stringify(allCVs));
 
-    const url = `/builder/${id}`;
-    window.location.href = url;
+    navigate(`/builder/${id}`);
   };
 
   const resetFilters = () => {

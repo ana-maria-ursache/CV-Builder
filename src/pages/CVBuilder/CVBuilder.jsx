@@ -5,17 +5,59 @@ import CVBuilderView from '../../components/CVBuilderVIew/CVBuilderVIew';
 import { PDFViewer, pdf } from '@react-pdf/renderer';
 import ButtonUp from '../../components/ButtonUp/ButtonUp';
 import { useParams } from 'react-router-dom';
+import supabase from '../../utils/supabaseClient';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { updateField } from '../../store/cvSlice';
+import { updateField, loadCV } from '../../store/cvSlice';
 
 export default function CVBuilder() {
   const { id: cvId } = useParams();
   const cvData = useSelector((state) => state.cv);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   const [debouncedCvData, setDebouncedCvData] = useState(cvData);
   const pdfRef = useRef();
+
+  // Load CV data from localStorage or database
+  useEffect(() => {
+    const loadCVData = async () => {
+      setLoading(true);
+      try {
+        if (cvId) {
+          // First try localStorage
+          const allCVs = JSON.parse(localStorage.getItem('allCVs') || '{}');
+          if (allCVs[cvId]) {
+            dispatch(loadCV(allCVs[cvId]));
+            setLoading(false);
+            return;
+          }
+
+          // If not in localStorage, fetch from database
+          const { data, error } = await supabase
+            .from('cv_versions')
+            .select('cv_content')
+            .eq('id', cvId)
+            .single();
+
+          if (error) throw error;
+          if (data) {
+            dispatch(loadCV(data.cv_content));
+            // Cache it in localStorage
+            const allCVs = JSON.parse(localStorage.getItem('allCVs') || '{}');
+            allCVs[cvId] = data.cv_content;
+            localStorage.setItem('allCVs', JSON.stringify(allCVs));
+          }
+        }
+      } catch (error) {
+        console.error('Error loading CV:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadCVData();
+  }, [cvId, dispatch]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -44,6 +86,22 @@ export default function CVBuilder() {
       console.error('Error generating PDF:', error);
     }
   };
+
+  if (loading) {
+    return (
+      <div
+        className="CVB"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+        }}
+      >
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <div className="CVB">

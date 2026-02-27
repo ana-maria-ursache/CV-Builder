@@ -41,7 +41,28 @@ const cvSlice = createSlice({
       }
     },
     loadCV: (state, action) => {
-      return action.payload;
+      // Merge loaded data with initial state structure to ensure all fields exist
+      const deepMerge = (target, source) => {
+        const result = { ...target };
+        
+        for (const key in source) {
+          if (source[key] === null || source[key] === undefined) {
+            continue;
+          }
+          
+          if (Array.isArray(source[key]) && Array.isArray(result[key])) {
+            result[key] = source[key].length > 0 ? source[key] : result[key];
+          } else if (typeof source[key] === 'object' && !Array.isArray(source[key]) && typeof result[key] === 'object') {
+            result[key] = deepMerge(result[key], source[key]);
+          } else {
+            result[key] = source[key];
+          }
+        }
+        
+        return result;
+      };
+      
+      return deepMerge(initialValuesCV, action.payload);
     },
     resetCV: () => initialValuesCV,
   },
