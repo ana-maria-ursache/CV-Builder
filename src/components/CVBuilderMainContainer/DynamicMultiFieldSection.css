@@ -1,0 +1,94 @@
+.dynamic-item-container {
+  margin-bottom: 20px;
+}
+
+.item-divider {
+  height: 2px;
+  background: #ccc;
+  margin: 20px 0 15px 0;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.item-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.remove-btn {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.remove-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.add-item-btn {
+  padding: 4px 10px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+  border-radius: 3px;
+}
+
+.add-item-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.section-action .add-item-btn {
+  padding: 6px 12px;
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .item-header {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+
+  .item-number {
+    font-size: 0.75rem;
+  }
+
+  .remove-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+
+  .add-item-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}

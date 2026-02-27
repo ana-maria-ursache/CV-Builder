@@ -5,14 +5,12 @@ import CVBuilderView from '../../components/CVBuilderVIew/CVBuilderVIew';
 import { PDFViewer, pdf } from '@react-pdf/renderer';
 import ButtonUp from '../../components/ButtonUp/ButtonUp';
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { updateField } from '../../store/cvSlice';
 
 export default function CVBuilder() {
   const { id: cvId } = useParams();
-  const { t } = useTranslation();
   const cvData = useSelector((state) => state.cv);
   const dispatch = useDispatch();
 
@@ -53,7 +51,6 @@ export default function CVBuilder() {
         <CVBuilderMainContainer
           onUpdate={handleChange}
           cvData={cvData}
-          initialValues={cvData}
           onPreviewPDF={handlePreviewPDF}
           cvId={cvId}
         />

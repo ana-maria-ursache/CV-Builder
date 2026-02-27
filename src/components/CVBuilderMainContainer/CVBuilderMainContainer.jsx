@@ -4,13 +4,12 @@ import CVBuilderBtns from './CVBuilderBtns';
 
 import Section from './Section';
 import InputPair from './InputPair';
-import TextAreaField from './TextAreaField';
+import DynamicMultiFieldSection from './DynamicMultiFieldSection';
 import SingleFieldSection from './SingleFieldSection';
-import PairWithTextAreaSection from './PairWithTextAreaSection';
 
 import { useTranslation } from 'react-i18next';
 
-function CVBuilderMainContainer({ onUpdate, cvData, initialValues, onPreviewPDF, cvId }) {
+function CVBuilderMainContainer({ onUpdate, cvData, onPreviewPDF, cvId }) {
   const { t } = useTranslation();
 
   return (
@@ -63,76 +62,96 @@ function CVBuilderMainContainer({ onUpdate, cvData, initialValues, onPreviewPDF,
           </Section>
 
           {/* Experience Section */}
-          <Section title={t('work-experience')}>
-            <InputPair
-              field1={{
-                label: t('role'),
-                name: 'experience.0.role',
-                placeholder: 'ex: Full Stack - Intern',
-              }}
-              field2={{
-                label: t('company'),
-                name: 'experience.0.company',
-                placeholder: 'ex: Cognizant',
-              }}
-              onChange={onUpdate}
-            />
-            <InputPair
-              field1={{
-                label: t('date'),
-                name: 'experience.0.date',
-                placeholder: 'ex: 2020 - 2021',
-              }}
-              field2={{
-                label: t('location'),
-                name: 'experience.0.location',
-                placeholder: t('location-placeholder'),
-              }}
-              onChange={onUpdate}
-            />
-            <TextAreaField
-              label={t('description')}
-              name="experience.0.description"
-              placeholder="Descrie task-urile tale..."
-              onChange={onUpdate}
-            />
-          </Section>
+          <DynamicMultiFieldSection
+            title={t('work-experience')}
+            arrayPath="experience"
+            cvData={cvData}
+            fields={[
+              [
+                {
+                  label: t('role'),
+                  name: 'role',
+                  placeholder: 'ex: Full Stack - Intern',
+                },
+                {
+                  label: t('company'),
+                  name: 'company',
+                  placeholder: 'ex: Cognizant',
+                },
+              ],
+              [
+                {
+                  label: t('date'),
+                  name: 'date',
+                  placeholder: 'ex: 2020 - 2021',
+                },
+                {
+                  label: t('location'),
+                  name: 'location',
+                  placeholder: t('location-placeholder'),
+                },
+              ],
+            ]}
+            textAreaTemplate={{
+              label: t('description'),
+              name: 'description',
+              placeholder: t('description-placeholder'),
+            }}
+            onChange={onUpdate}
+            template={{
+              role: '',
+              company: '',
+              date: '',
+              location: '',
+              description: '',
+            }}
+          />
 
           {/* Education Section */}
-          <Section title={t('education')}>
-            <InputPair
-              field1={{
-                label: t('university'),
-                name: 'education.0.university',
-                placeholder: 'ex: UAIC Iasi',
-              }}
-              field2={{
-                label: t('degree'),
-                name: 'education.0.degree',
-                placeholder: "ex: Master's Degree",
-              }}
-              onChange={onUpdate}
-            />
-            <InputPair
-              field1={{
-                label: t('location'),
-                name: 'education.0.location',
-                placeholder: t('location-placeholder'),
-              }}
-              field2={{
-                label: t('date'),
-                name: 'education.0.date',
-                placeholder: 'ex: 2020 - 2021',
-              }}
-              onChange={onUpdate}
-            />
-            <TextAreaField
-              label={t('description')}
-              name="education.0.description"
-              placeholder={t('description-placeholder')}
-              onChange={onUpdate}
-            />
-          </Section>
+          <DynamicMultiFieldSection
+            title={t('education')}
+            arrayPath="education"
+            cvData={cvData}
+            fields={[
+              [
+                {
+                  label: t('university'),
+                  name: 'university',
+                  placeholder: 'ex: UAIC Iasi',
+                },
+                {
+                  label: t('degree'),
+                  name: 'degree',
+                  placeholder: "ex: Master's Degree",
+                },
+              ],
+              [
+                {
+                  label: t('location'),
+                  name: 'location',
+                  placeholder: t('location-placeholder'),
+                },
+                {
+                  label: t('date'),
+                  name: 'date',
+                  placeholder: 'ex: 2020 - 2021',
+                },
+              ],
+            ]}
+            textAreaTemplate={{
+              label: t('description'),
+              name: 'description',
+              placeholder: t('description-placeholder'),
+            }}
+            onChange={onUpdate}
+            template={{
+              university: '',
+              degree: '',
+              location: '',
+              date: '',
+              description: '',
+            }}
+          />
 
           {/* Skills Section */}
           <Section title={t('skills')}>
@@ -157,23 +176,35 @@ function CVBuilderMainContainer({ onUpdate, cvData, initialValues, onPreviewPDF,
           </Section>
 
           {/* Projects Section */}
-          <PairWithTextAreaSection
+          <DynamicMultiFieldSection
             title={t('personal-projects')}
-            field1={{
-              label: t('project-title'),
-              name: 'projects.0.title',
-              placeholder: 'ex: KeyStroke',
+            arrayPath="projects"
+            cvData={cvData}
+            fields={[
+              [
+                {
+                  label: t('project-title'),
+                  name: 'title',
+                  placeholder: 'ex: KeyStroke',
+                },
+                {
+                  label: t('stack'),
+                  name: 'stack',
+                  placeholder: 'ex: MongoDB, Express...',
+                },
+              ],
+            ]}
+            textAreaTemplate={{
+              label: t('description'),
+              name: 'description',
+              placeholder: 'Describe your project and its features...',
             }}
-            field2={{
-              label: t('stack'),
-
-              name: 'projects.0.stack',
-              placeholder: 'ex: MongoDB, Express...',
-            }}
-            textAreaLabel={t('description')}
-            textAreaName="projects.0.description"
-            textAreaPlaceholder={t('description-placeholder')}
             onChange={onUpdate}
+            template={{
+              title: '',
+              stack: '',
+              description: '',
+            }}
           />
 
           {/* Certificates Section */}
@@ -185,22 +216,35 @@ function CVBuilderMainContainer({ onUpdate, cvData, initialValues, onPreviewPDF,
           />
 
           {/* Volunteering Section */}
-          <PairWithTextAreaSection
+          <DynamicMultiFieldSection
             title={t('volunteering')}
-            field1={{
-              label: t('volunteering-role'),
-              name: 'volunteering.0.role',
-              placeholder: 'ex: ASII - Project Management',
+            arrayPath="volunteering"
+            cvData={cvData}
+            fields={[
+              [
+                {
+                  label: t('volunteering-role'),
+                  name: 'role',
+                  placeholder: 'ex: ASII - Project Management',
+                },
+                {
+                  label: t('date'),
+                  name: 'date',
+                  placeholder: 'ex: 2020 - 2021',
+                },
+              ],
+            ]}
+            textAreaTemplate={{
+              label: t('description'),
+              name: 'description',
+              placeholder: 'Describe your volunteering experience...',
             }}
-            field2={{
-              label: t('date'),
-              name: 'volunteering.0.date',
-              placeholder: 'ex: 2020 - 2021',
-            }}
-            textAreaLabel={t('description')}
-            textAreaName="volunteering.0.description"
-            textAreaPlaceholder={t('description-placeholder')}
             onChange={onUpdate}
+            template={{
+              role: '',
+              date: '',
+              description: '',
+            }}
           />
 
           {/* Languages Section */}
@@ -219,12 +263,7 @@ function CVBuilderMainContainer({ onUpdate, cvData, initialValues, onPreviewPDF,
             onChange={onUpdate}
           />
 
-          <CVBuilderBtns
-            cvData={cvData}
-            initialValues={initialValues}
-            onPreviewPDF={onPreviewPDF}
-            cvId={cvId}
-          />
+          <CVBuilderBtns cvData={cvData} onPreviewPDF={onPreviewPDF} cvId={cvId} />
         </form>
       </div>
     </div>

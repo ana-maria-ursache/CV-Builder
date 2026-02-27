@@ -100,7 +100,7 @@ export default function Navbar() {
               RO
             </button>
           </div>
-          <input type="checkbox" onChange={handleThemeToggle} class="theme-checkbox" />
+          <input type="checkbox" onChange={handleThemeToggle} className="theme-checkbox" />
         </div>
       </div>
     </nav>

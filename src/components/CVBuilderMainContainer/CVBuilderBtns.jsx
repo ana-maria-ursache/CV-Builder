@@ -13,6 +13,7 @@ import CVBuilderView from '../CVBuilderVIew/CVBuilderVIew';
 import { sendEmail } from '../../utils/sendEmail';
 import env from '../../../config';
 import { pdf } from '@react-pdf/renderer';
+import initialValuesCV from '../../utils/initialValuesCV';
 
 const getFilteredData = (currentData, initialData) => {
   const filtered = {};
@@ -45,17 +46,14 @@ const getFilteredData = (currentData, initialData) => {
   return filtered;
 };
 
-function CVBuilderBtns({ cvData, initialValues, onPreviewPDF, cvId }) {
+function CVBuilderBtns({ cvData, onPreviewPDF, cvId }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const { isLoggedIn, currentUser } = useSelector((state) => state.user);
 
-  const filteredCvData = useMemo(
-    () => getFilteredData(cvData, initialValues),
-    [cvData, initialValues]
-  );
+  const filteredCvData = useMemo(() => getFilteredData(cvData, initialValuesCV), [cvData]);
 
   const saveCV = async () => {
     try {
@@ -78,7 +76,7 @@ function CVBuilderBtns({ cvData, initialValues, onPreviewPDF, cvId }) {
         navigate(`/builder/${savedId}`);
       }
 
-      toast.success('Versiunea CV-ului a fost salvată!');
+      toast.success(t('version-cv-saved'));
     } catch (error) {
       toast.error(error.message || t('save-failed'));
     }
@@ -89,7 +87,7 @@ function CVBuilderBtns({ cvData, initialValues, onPreviewPDF, cvId }) {
   };
 
   const downloadAsJSON = () => {
-    const dataStr = JSON.stringify(cvData, null, 2);
+    const dataStr = JSON.stringify(filteredCvData, null, 2);
     const dataBlob = new Blob([dataStr], { type: 'application/json' });
     const url = URL.createObjectURL(dataBlob);
     const link = document.createElement('a');
@@ -128,6 +126,7 @@ function CVBuilderBtns({ cvData, initialValues, onPreviewPDF, cvId }) {
       toast.error(error + '; ' + t('email-failed'), { id: loadingToast });
     }
   };
+
   return (
     <div className="cv-buttons">
       {isLoggedIn && (

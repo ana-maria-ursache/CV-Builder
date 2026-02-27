@@ -100,5 +100,7 @@
     "last-update":"Ultima actualizare",
     "actions":"Acțiuni",
     "demote":"Demotează",
-    "make-admin":"Fă admin"
+    "make-admin":"Fă admin",
+    "version-cv-saved":"Versiunea CV-ului a fost salvată!",
+    "entry-number":"Intrarea"
 }   
