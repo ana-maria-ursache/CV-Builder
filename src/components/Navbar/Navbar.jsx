@@ -28,7 +28,6 @@ export default function Navbar() {
   };
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  console.log('isLoggedIn:', isLoggedIn, 'isAdmin:', isAdmin);
 
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
