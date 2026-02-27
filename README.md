@@ -72,35 +72,35 @@ The application allows users to build, edit and manage their professional profil
 For better show all the functionalities, color-themes and languages available, the images bellow will be a mix of the this properties on both the browser and mobile view.
 
 ### Navbar on browser view
-![alt text](/images-for-readme/image-12.png) 
+![alt text](/public/images-for-readme/image-12.png) 
 
 ### Navbar on mobile view
-![alt text](/images-for-readme/image-13.png) 
+![alt text](/public/images-for-readme/image-13.png) 
 
 ### Landing Page
-![alt text](/images-for-readme/image-1.png)
+![alt text](/public/images-for-readme/image-1.png)
 
 ### CV Builder Page
-![alt text](/images-for-readme/image-2.png)
-![alt text](/images-for-readme/image-3.png)
+![alt text](/public/images-for-readme/image-2.png)
+![alt text](/public/images-for-readme/image-3.png)
 
 #### Buttons for a unlogged user
-![alt text](/images-for-readme/image-4.png)
+![alt text](/public/images-for-readme/image-4.png)
 
 #### Buttons for a logged user
-![alt text](/images-for-readme/image-5.png)  
-![alt text](/images-for-readme/email-share-cv.png) 
+![alt text](/public/images-for-readme/image-5.png)  
+![alt text](/public/images-for-readme/email-share-cv.png) 
 
 
 #### Buttons for user on mobile view
-![alt text](/images-for-readme/image-10.png)
+![alt text](/public/images-for-readme/image-10.png)
 
 ### My-CVs Page
-![alt text](/images-for-readme/image-6.png) 
+![alt text](/public/images-for-readme/image-6.png) 
 
 ### Dashboard Page
-![alt text](/images-for-readme/image-11.png)
+![alt text](/public/images-for-readme/image-11.png)
 
 ### Contact Page
-![alt text](/images-for-readme/image-9.png) 
-![alt text](/images-for-readme/email-contact.png) 
+![alt text](/public/images-for-readme/image-9.png) 
+![alt text](/public/images-for-readme/email-contact.png) 
