@@ -13,6 +13,8 @@ The application allows users to build, edit and manage their professional profil
 ![#ff820e](https://placehold.co/15x15/ff820e/ff820e.png) `#ff820e` |
 ![#e54409](https://placehold.co/15x15/e54409/e54409.png) `#e54409` 
 
+---
+
 ### Technologies used to make this project: 
 --> Core: React.js, Redux Toolkit (State Management).
 
@@ -23,6 +25,8 @@ The application allows users to build, edit and manage their professional profil
 --> PDF Generation: @react-pdf/renderer for in-browser document generation.
 
 --> Utilities: react-i18next (Internationalization), sonner (Toast notifications), emailjs/browser (Email service integration).
+
+---
 
 ### Functionalities: 
 --> Dynamic UI: Add/remove professional sections (Experience, Education, Projects) on the fly using custom dynamic list components.
@@ -39,6 +43,8 @@ The application allows users to build, edit and manage their professional profil
 
 --> Localization: Multi-language support (English/Romanian). For now, there are only 2 languages available, but in the future it will be straightforward to add more languages to enlarge the client palette.
 
+---
+
 ### Main Pages: 
 --> Landing Page: A simple design that users will first see at opening the app.
 
@@ -52,6 +58,7 @@ The application allows users to build, edit and manage their professional profil
 
 --> Contact form: Easy way for the admin to receive complaints, feedback or suggestions from the users.
 
+---
 
 ### Commands for the setup:
 --> cloning: git clone https://github.com/ana-maria-ursache/CV-Builder
@@ -60,36 +67,37 @@ The application allows users to build, edit and manage their professional profil
 
 --> view: npm run dev (starts the development server via Vite)
 
+
 ## Images:
 For better show all the functionalities, color-themes and languages available, the images bellow will be a mix of the this properties on both the browser and mobile view.
 
 ### Navbar on browser view
-![alt text](image-12.png) 
+![alt text](/images-for-readme/image-12.png) 
 
 ### Navbar on mobile view
-![alt text](image-13.png) 
+![alt text](/images-for-readme/image-13.png) 
 
 ### Landing Page
-![alt text](image-1.png)
+![alt text](/images-for-readme/image-1.png)
 
 ### CV Builder Page
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](/images-for-readme/image-2.png)
+![alt text](/images-for-readme/image-3.png)
 
 #### Buttons for a unlogged user
-![alt text](image-4.png)
+![alt text](/images-for-readme/image-4.png)
 
 #### Buttons for a logged user
-![alt text](image-5.png)  
+![alt text](/images-for-readme/image-5.png)  
 
 #### Buttons for user on mobile view
-![alt text](image-10.png)
+![alt text](/images-for-readme/image-10.png)
 
 ### My-CVs Page
-![alt text](image-6.png) 
+![alt text](/images-for-readme/image-6.png) 
 
 ### Dashboard Page
-![alt text](image-11.png)
+![alt text](/images-for-readme/image-11.png)
 
 ### Contact Page
-![alt text](image-9.png) 
+![alt text](/images-for-readme/image-9.png) 
