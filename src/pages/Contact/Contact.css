@@ -17,6 +17,10 @@
   color: var(--dark);
 }
 
+#contact-us-text{
+  text-align: center;
+}
+
 .contact-text p{
   text-align: center;
   margin-top: 20px;

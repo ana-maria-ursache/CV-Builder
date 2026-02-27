@@ -16,6 +16,30 @@ const cvSlice = createSlice({
       }
       current[parts[parts.length - 1]] = value;
     },
+    addItem: (state, action) => {
+      const { path, template } = action.payload;
+      const parts = path.split('.');
+      
+      let current = state;
+      for (let i = 0; i < parts.length - 1; i++) {
+        current = current[parts[i]];
+      }
+      const arrayKey = parts[parts.length - 1];
+      current[arrayKey].push(template);
+    },
+    removeItem: (state, action) => {
+      const { path, index } = action.payload;
+      const parts = path.split('.');
+      
+      let current = state;
+      for (let i = 0; i < parts.length - 1; i++) {
+        current = current[parts[i]];
+      }
+      const arrayKey = parts[parts.length - 1];
+      if (current[arrayKey].length > 1) {
+        current[arrayKey].splice(index, 1);
+      }
+    },
     loadCV: (state, action) => {
       return action.payload;
     },
@@ -23,5 +47,5 @@ const cvSlice = createSlice({
   },
 });
 
-export const { updateField, loadCV, resetCV } = cvSlice.actions;
+export const { updateField, addItem, removeItem, loadCV, resetCV } = cvSlice.actions;
 export default cvSlice.reducer;

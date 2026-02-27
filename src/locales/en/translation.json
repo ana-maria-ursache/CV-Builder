@@ -100,5 +100,7 @@
     "last-update":"Last update",
     "actions":"Actions",
     "demote":"Demote",
-    "make-admin":"Make Admin"
+    "make-admin":"Make Admin",
+    "version-cv-saved":"The current version of the CV was saved!",
+    "entry-number":"Entry"
 }

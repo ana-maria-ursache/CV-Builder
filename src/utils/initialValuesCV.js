@@ -50,7 +50,7 @@ const initialValuesCV = {
         description: 'Describe your project and its features...',
       },
     ],
-    certificates: 'List your certificates and trainings...',
+    certificates: ['List your certificates and trainings...'],
     volunteering: [
       {
         role: 'Organization & Role',
@@ -58,7 +58,7 @@ const initialValuesCV = {
         description: 'Describe your volunteering experience...',
       },
     ],
-    languages: 'Language: Proficiency Level',
-    interests: 'Your interests and hobbies...',
+    languages: ['Language: Proficiency Level'],
+    interests: ['Your interests and hobbies...'],
   }
   export default initialValuesCV;

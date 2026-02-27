@@ -1,0 +1,143 @@
+.simple-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.simple-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.simple-item-input {
+  flex: 1;
+  border: 2px solid #000;
+  padding: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s;
+}
+
+.simple-item-input:focus {
+  background-color: #fff8e1;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.simple-remove-btn {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.simple-remove-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.add-simple-item-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.add-simple-item-input {
+  flex: 1;
+  border: 2px solid #000;
+  padding: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s;
+}
+
+.add-simple-item-input:focus {
+  background-color: #fff8e1;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.add-simple-item-input::placeholder {
+  color: #ccc;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.add-simple-item-btn {
+  padding: 8px 10px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+  width: 40px;
+  flex-shrink: 0;
+  border-radius: 3px;
+}
+
+.add-simple-item-btn:hover:not(:disabled) {
+  background: #000;
+  color: #fff;
+}
+
+.add-simple-item-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.section-action .add-simple-item-btn {
+  width: auto;
+  padding: 6px 12px;
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .simple-items-list {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .simple-item-input {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .simple-remove-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+
+  .add-simple-item-group {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .add-simple-item-input {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .add-simple-item-btn {
+    padding: 6px 8px;
+    font-size: 11px;
+    width: 36px;
+  }
+}
