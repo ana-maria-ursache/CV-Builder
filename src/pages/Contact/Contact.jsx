@@ -11,15 +11,18 @@ export default function Contact() {
   const { t } = useTranslation();
 
   const handleContactSubmit = async (values) => {
+    console.log(values);
+
     try {
       const params = {
         name: values.name,
         email: values.email,
         subject: values.subject,
-        text: values.message,
+        text: values.text,
       };
 
-      await sendEmail(params, env.emailJsServiceID, 'template_pvluwwg', env.emailJsKey);
+      console.log(params);
+      await sendEmail(params, env.emailJsServiceID, 'template_iup5jde', env.emailJsKey);
 
       toast.success(t('toast-success'));
     } catch (error) {
