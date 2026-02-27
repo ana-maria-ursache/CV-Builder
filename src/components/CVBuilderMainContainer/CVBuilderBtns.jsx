@@ -1,18 +1,14 @@
 import { useMemo, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import supabase from '../../utils/supabaseClient';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
-
-import { useDispatch } from 'react-redux';
 import { resetCV } from '../../store/cvSlice';
-
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { PDFDownloadLink, pdf } from '@react-pdf/renderer';
 import CVBuilderView from '../CVBuilderVIew/CVBuilderVIew';
 import { sendEmail } from '../../utils/sendEmail';
 import env from '../../../config';
-import { pdf } from '@react-pdf/renderer';
 import initialValuesCV from '../../utils/initialValuesCV';
 
 const getFilteredData = (currentData, initialData) => {

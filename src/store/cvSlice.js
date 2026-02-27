@@ -16,6 +16,7 @@ const cvSlice = createSlice({
       }
       current[parts[parts.length - 1]] = value;
     },
+    
     addItem: (state, action) => {
       const { path, template } = action.payload;
       const parts = path.split('.');
@@ -27,6 +28,7 @@ const cvSlice = createSlice({
       const arrayKey = parts[parts.length - 1];
       current[arrayKey].push(template);
     },
+
     removeItem: (state, action) => {
       const { path, index } = action.payload;
       const parts = path.split('.');
@@ -40,6 +42,7 @@ const cvSlice = createSlice({
         current[arrayKey].splice(index, 1);
       }
     },
+
     loadCV: (state, action) => {
       // Merge loaded data with initial state structure to ensure all fields exist
       const deepMerge = (target, source) => {

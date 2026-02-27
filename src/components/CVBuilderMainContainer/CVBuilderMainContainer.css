@@ -227,7 +227,7 @@
   }
 
   .cv-buttons {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 15px;
   }
 

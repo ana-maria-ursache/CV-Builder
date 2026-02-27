@@ -4,7 +4,6 @@ import CVBuilderBtns from './CVBuilderBtns';
 
 import Section from './Section';
 import InputPair from './InputPair';
-import TextAreaField from './TextAreaField';
 import DynamicMultiFieldSection from './DynamicMultiFieldSection';
 import SingleFieldSection from './SingleFieldSection';
 
