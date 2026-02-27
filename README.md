@@ -89,6 +89,8 @@ For better show all the functionalities, color-themes and languages available, t
 
 #### Buttons for a logged user
 ![alt text](/images-for-readme/image-5.png)  
+![alt text](/images-for-readme/email-share-cv.png) 
+
 
 #### Buttons for user on mobile view
 ![alt text](/images-for-readme/image-10.png)
@@ -101,3 +103,4 @@ For better show all the functionalities, color-themes and languages available, t
 
 ### Contact Page
 ![alt text](/images-for-readme/image-9.png) 
+![alt text](/images-for-readme/email-contact.png) 
