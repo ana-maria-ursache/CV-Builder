@@ -1,0 +1,15 @@
+services:
+  frontend:
+    build:
+      context: .
+      args:
+        - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+        - VITE_SUPABASE_KEY=${VITE_SUPABASE_KEY}
+        - VITE_SUPABASE_SECRET=${VITE_SUPABASE_SECRET}
+        - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+        - VITE_EMAILJS_EMAIL=${VITE_EMAILJS_EMAIL}
+        - VITE_EMAILJS_KEY=${VITE_EMAILJS_KEY}
+        - VITE_EMAILJS_SERVICE_ID=${VITE_EMAILJS_SERVICE_ID}
+    ports:
+      - '8080:80'
+    container_name: react-app-container
